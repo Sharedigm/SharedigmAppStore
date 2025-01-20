@@ -6,10 +6,10 @@
 
 The [Account Manager](https://www.sharedigm.com/#apps/account-manager) app is used to help an administrator to view and manage user accounts.
 
-<figure>
+<p align="center" style="text-align:center">
 	<img src="images/info/account-manager.png" width="720" style="border-radius:6px" />
-	<figcaption>Account Manager</figcaption>
-</figure>
+	<div align="center">Account Manager</div>
+</p>
 
 ## Features
 
