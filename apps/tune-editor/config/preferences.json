@@ -1,0 +1,33 @@
+{
+	"home_directory": "/Music",
+	"notation_size": 100,
+	"fit_width": false,
+	"tune_looping": false,
+	"window_size": "medium",
+	"maximized": true,
+	"full_screen": false,
+	"toolbars": [
+		"nav",
+		"track"
+	],
+	"show_sidebar": true,
+	"sidebar_size": {
+		"phone": 0,
+		"tablet": 25,
+		"desktop": 25
+	},
+	"sidebar_min_size": {
+		"phone": 0,
+		"tablet": 175,
+		"desktop": 175
+	},
+	"sidebar_panels": [
+		"tunes"
+	],
+	"show_markup": true,
+	"markup_bar_size": {
+		"phone": 50,
+		"tablet": 25,
+		"desktop": 25
+	}
+}

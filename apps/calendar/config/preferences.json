@@ -1,0 +1,23 @@
+{
+	"view_kind": "month",
+	"window_size": "medium",
+	"maximized": false,
+	"full_screen": false,
+	"toolbars": [
+		"nav"
+	],
+	"show_sidebar": true,
+	"sidebar_size": {
+		"phone": 0,
+		"tablet": 35,
+		"desktop": 35
+	},
+	"sidebar_min_size": {
+		"phone": 0,
+		"tablet": 225,
+		"desktop": 225
+	},
+	"sidebar_panels": [
+		"events"
+	]
+}

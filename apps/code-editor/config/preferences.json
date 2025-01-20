@@ -1,0 +1,48 @@
+{
+	"home_directory": "Code/",
+	"show_gutter": true,
+	"show_indent_guides": true,
+	"show_print_margin": false,
+	"show_invisibles": false,
+	"font_size": 12,
+	"tab_size": 4,
+	"soft_tabs": false,
+	"soft_wrap": "off",
+	"key_binding": "default",
+	"highlight_active_line": false,
+	"highlight_selected": true,
+	"select_full_line": true,
+	"animated_scroll": true,
+	"window_size": "medium",
+	"maximized": true,
+	"full_screen": false,
+	"toolbars": [
+		"nav"
+	],
+	"show_sidebar": true,
+	"sidebar_size": {
+		"phone": 0,
+		"tablet": 30,
+		"desktop": 30
+	},
+	"sidebar_min_size": {
+		"phone": 0,
+		"tablet": 175,
+		"desktop": 175
+	},
+	"sidebar_panels": [
+		"favorites",
+		"files"
+	],
+	"sidebar_view_kind": {
+		"phone": "trees",
+		"tablet": "trees",
+		"desktop": "trees"
+	},
+	"show_console": false,
+	"console_size": {
+		"phone": 50,
+		"tablet": 25,
+		"desktop": 25
+	}
+}

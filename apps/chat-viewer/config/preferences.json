@@ -1,0 +1,37 @@
+{
+	"messages_per_page": 50,
+	"window_size": "medium",
+	"maximized": true,
+	"full_screen": false,
+	"show_elapsed_time": true,
+	"translation": false,
+	"language": "English",
+	"show_sidebar": true,
+	"sidebar_size": {
+		"phone": 0,
+		"tablet": 25,
+		"desktop": 25
+	},
+	"sidebar_min_size": {
+		"phone": 0,
+		"tablet": 200,
+		"desktop": 200
+	},
+	"sidebar_panels": [
+		"info",
+		"chats"
+	],
+	"sidebar_info_kind": {
+		"phone": "icons",
+		"tablet": "icons",
+		"desktop": "icons"
+	},
+	"sidebar_view_kind": {
+		"phone": "lists",
+		"tablet": "lists",
+		"desktop": "lists"
+	},
+	"uploads_directory": "Uploads/",
+	"copy_attachments": true,
+	"messages_directory": ".Messages/"
+}

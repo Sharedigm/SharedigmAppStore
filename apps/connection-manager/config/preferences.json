@@ -1,0 +1,44 @@
+{
+	"view_kind": {
+		"phone": "cards",
+		"tablet": "cards",
+		"desktop": "icons"
+	},
+	"tile_size": "medium",
+	"detail_kind": null,
+	"date_format": "date_only",
+	"sort_kind": "name",
+	"sort_order": "increasing",
+	"window_size": "medium",
+	"maximized": false,
+	"full_screen": false,
+	"toolbars": [
+		"nav"
+	],
+	"map_mode": "hybrid",
+	"map_view_kind": {
+		"phone": "icons",
+		"tablet": "icons",
+		"desktop": "icons"
+	},
+	"show_item_names": true,
+	"show_sidebar": true,
+	"sidebar_size": {
+		"phone": 0,
+		"tablet": 25,
+		"desktop": 25
+	},
+	"sidebar_min_size": {
+		"phone": 0,
+		"tablet": 175,
+		"desktop": 175
+	},
+	"sidebar_panels": [
+		"groups"
+	],
+	"sidebar_view_kind": {
+		"phone": "lists",
+		"tablet": "icons",
+		"desktop": "icons"
+	}
+}

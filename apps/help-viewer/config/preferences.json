@@ -1,0 +1,23 @@
+{
+	"window_size": "medium",
+	"maximized": true,
+	"full_screen": false,
+	"toolbars": [
+		"nav",
+		"page"
+	],
+	"show_sidebar": true,
+	"sidebar_size": {
+		"phone": 0,
+		"tablet": 30,
+		"desktop": 30
+	},
+	"sidebar_min_size": {
+		"phone": 0,
+		"tablet": 0,
+		"desktop": 0
+	},
+	"sidebar_panels": [
+		"index"
+	]
+}

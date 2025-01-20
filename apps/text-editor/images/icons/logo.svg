@@ -1,0 +1,19 @@
+<svg
+	xmlns:svg="http://www.w3.org/2000/svg"
+	xmlns="http://www.w3.org/2000/svg"
+	viewBox="0 0 512 512"
+	height="512"
+	width="512">
+
+	<rect width="480" height="480" x="16" y="16" rx="128" ry="128" fill="hsl(180, 50%, 40%)" stroke="hsl(180, 50%, 35%)" stroke-width="16" />
+
+	<g transform="translate(256 256) scale(0.75) translate(-256 -256)">
+		<svg xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+			<g transform="translate(0 -1028.4)">
+				<path d="m5 1029.4c -1.1046 0 -2 0.9 -2 2v8 4 6c0 1.1 0.8954 2 2 2h14c1.105 0 2 -0.9 2 -2v -6 -4 -4l -6 -6h -10z" fill="white"/>
+				<path d="m21 1035.4 -6 -6v4c0 1.1 0.895 2 2 2h4z" fill="lightgrey"/>
+				<path d="m6 8v1h12v -1h -12zm0 3v1h12v -1h -12zm0 3v1h12v -1h -12zm0 3v1h12v -1h -12z" transform="translate(0 1028.4)" fill="darkgrey"/>
+			</g>
+		</svg>
+	</g>
+</svg>

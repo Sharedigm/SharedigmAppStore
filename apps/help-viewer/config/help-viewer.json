@@ -1,0 +1,11 @@
+{
+	"name": "Help",
+	"icon": "fa fa-question-circle",
+	"category": "utility",
+	"platform": "all",
+	"access": "all",
+	"disabled": false,
+	"hidden": false,
+	"args": true,
+	"color": "red"
+}

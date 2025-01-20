@@ -1,0 +1,11 @@
+{
+	"display": "led",
+	"show_hours": true,
+	"show_hundredths": true,
+	"direction": "up",
+	"hours": 0,
+	"minutes": 0,
+	"seconds": 0,
+	"maximized": false,
+	"full_screen": false
+}

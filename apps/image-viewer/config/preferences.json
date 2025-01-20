@@ -1,0 +1,48 @@
+{
+	"home_directory": "Pictures/",
+	"background_color": null,
+	"zoom_duration": 100,
+	"rotate_duration": 500,
+	"slide_duration": 5,
+	"slide_looping": true,
+	"window_size": "medium",
+	"maximized": true,
+	"full_screen": false,
+	"toolbars": [
+		"mouse_mode",
+		"zoom_mode",
+		"zoom",
+		"image"
+	],
+	"show_sidebar": true,
+	"sidebar_size": {
+		"phone": 0,
+		"tablet": 30,
+		"desktop": 30
+	},
+	"sidebar_min_size": {
+		"phone": 0,
+		"tablet": 175,
+		"desktop": 175
+	},
+	"sidebar_panels": [
+		"favorites",
+		"images"
+	],
+	"sidebar_view_kind": {
+		"phone": "tiles",
+		"tablet": "tiles",
+		"desktop": "tiles"
+	},
+	"sidebar_tile_size": {
+		"phone": "small",
+		"tablet": "medium",
+		"desktop": "large"
+	},
+	"show_exif_info": false,
+	"info_bar_size": {
+		"phone": 50,
+		"tablet": 25,
+		"desktop": 25
+	}
+}
