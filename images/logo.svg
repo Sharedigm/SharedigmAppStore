@@ -7,15 +7,15 @@
 
 	<defs>
 		<clipPath id="rounded-rect">
-			<rect width="480" height="480" x="16" y="16" rx="128" ry="128" fill="hsl(220, 100%, 66%)" stroke="hsl(220, 100%, 66%)" stroke-width="16" />
+			<rect width="512" height="512" x="0" y="0" rx="128" ry="128" fill="hsl(220, 100%, 66%)" stroke="hsl(220, 100%, 66%)" />
 		</clipPath>
 	</defs>
    
    <g clip-path="url(#rounded-rect)" >
-		<path d="M 0 0,512 0,512 512,0 512 Z" fill="hsl(220, 100%, 66%)"/>
+		<path d="M 0 0, 512 0, 512 512, 0 512 Z" fill="hsl(220, 100%, 66%)"/>
 		<g style="fill:white">
-			<path d="M 256,0 0,256 256,256 512,0 Z" />
-			<path d="M 0,512 256,256 512,256 256,512 Z" />
+			<path d="M 256, 0 0, 256 256, 256 512, 0 Z" />
+			<path d="M 0, 512 256, 256 512, 256 256, 512 Z" />
 		</g>
 	</g>
 </svg>
