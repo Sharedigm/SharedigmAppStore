@@ -8,6 +8,7 @@ The [Chat Viewer](https://www.sharedigm.com/#apps/chat-viewer) app lets you view
 
 <p align="center" style="text-align:center">
 	<img src="images/info/chat-viewer.png" width="720" style="border-radius:6px" />
+	<div align="center">Chat Viewer</div>
 </p>
 
 ## Features

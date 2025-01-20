@@ -8,6 +8,7 @@ The [Notification Center](https://www.sharedigm.com/#apps/notification-center) a
 
 <p align="center" style="text-align:center">
 	<img src="images/info/notification-center.png" width="300" style="border-radius:6px" />
+	<div align="center">Notification Center</div>
 </p>
 
 ## Features

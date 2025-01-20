@@ -8,6 +8,7 @@ The [Pdf Viewer](https://www.sharedigm.com/#apps/pdf-viewer) app lets you view .
 
 <p align="center" style="text-align:center">
 	<img src="images/info/pdf-viewer.png" width="720" style="border-radius:6px" />
+	<div align="center">Pdf Viewer</div>
 </p>
 
 ## Features

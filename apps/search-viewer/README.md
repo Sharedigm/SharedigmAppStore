@@ -8,6 +8,7 @@ The [Search Viewer](https://www.sharedigm.com/#apps/search-viewer) app is used t
 
 <p align="center" style="text-align:center">
 	<img src="images/info/search-viewer.png" width="720" style="border-radius:6px" />
+	<div align="center">Search Viewer</div>
 </p>
 
 ## Features

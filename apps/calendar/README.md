@@ -8,6 +8,7 @@ The [Calendar](https://www.sharedigm.com/#apps/calendar) app allows you to keep 
 
 <p align="center" style="text-align:center">
 	<img src="images/info/calendar.png" width="720" style="border-radius:6px" />
+	<div align="center">Calendar</div>
 </p>
 
 ## Features

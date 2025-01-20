@@ -8,6 +8,7 @@ The [Web Browser](https://www.sharedigm.com/#apps/web-browser) app lets you view
 
 <p align="center" style="text-align:center">
 	<img src="images/info/web-browser.png" width="720" style="border-radius:6px" />
+	<div align="center">Web Browser</div>
 </p>
 
 ## Features

@@ -8,6 +8,7 @@ The [App Launcher](https://www.sharedigm.com/#apps/app-launcher) app is used to 
 
 <p align="center" style="text-align:center">
 	<img src="images/info/app-launcher.png" width="720" style="border-radius:6px" />
+	<div align="center">App Launcher</div>
 </p>
 
 ## Features

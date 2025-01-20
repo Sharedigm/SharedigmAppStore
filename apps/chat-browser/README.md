@@ -8,6 +8,7 @@ The [Chat Browser](https://www.sharedigm.com/#apps/chat-browser) app lets you vi
 
 <p align="center" style="text-align:center">
 	<img src="images/info/chat-browser.png" width="720" style="border-radius:6px" />
+	<div align="center">Chat Browser</div>
 </p>
 
 ## Features

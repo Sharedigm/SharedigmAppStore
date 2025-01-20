@@ -8,6 +8,7 @@ The [Profile Browser](https://www.sharedigm.com/#apps/profile-browser) app is us
 
 <p align="center" style="text-align:center">
 	<img src="images/info/profile-browser.png" width="720" style="border-radius:6px" />
+	<div align="center">Profile Browser</div>
 </p>
 
 ## Features

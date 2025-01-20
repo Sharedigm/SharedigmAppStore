@@ -8,6 +8,7 @@ The [Video Player](https://www.sharedigm.com/#apps/video-player) app is used to 
 
 <p align="center" style="text-align:center">
 	<img src="images/info/video-player.png" width="720" style="border-radius:6px" />
+	<div align="center">Video Player</div>
 </p>
 
 ## Features

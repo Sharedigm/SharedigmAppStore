@@ -8,6 +8,7 @@ The [Post Viewer](https://www.sharedigm.com/#apps/post-viewer) app lets you view
 
 <p align="center" style="text-align:center">
 	<img src="images/info/post-viewer.png" width="720" style="border-radius:6px" />
+	<div align="center">Post Viewer</div>
 </p>
 
 ## Features

@@ -8,6 +8,7 @@ The [Settings Manager](https://www.sharedigm.com/#apps/settings-manager) app let
 
 <p align="center" style="text-align:center">
 	<img src="images/info/settings-manager.png" width="720" style="border-radius:6px" />
+	<div align="center">Settings Manager</div>
 </p>
 
 ## Features

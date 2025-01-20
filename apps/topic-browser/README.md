@@ -8,6 +8,7 @@ The [Topic Browser](https://www.sharedigm.com/#apps/topic-browser) app lets you 
 
 <p align="center" style="text-align:center">
 	<img src="images/info/topic-browser.png" width="720" style="border-radius:6px" />
+	<div align="center">Topic Browser</div>
 </p>
 
 ## Features

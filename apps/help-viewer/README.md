@@ -8,6 +8,7 @@ The [Help Viewer](https://www.sharedigm.com/#apps/help-viewer) app lets you brow
 
 <p align="center" style="text-align:center">
 	<img src="images/info/help-viewer.png" width="720" style="border-radius:6px" />
+	<div align="center">Help Viewer</div>
 </p>
 
 ## Features

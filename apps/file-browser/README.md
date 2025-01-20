@@ -8,6 +8,7 @@ The [File Browser](https://www.sharedigm.com/#apps/file-browser) app lets you vi
 
 <p align="center" style="text-align:center">
 	<img src="images/info/file-browser.png" width="720" style="border-radius:6px" />
+	<div align="center">File Browser</div>
 </p>
 
 ## Features

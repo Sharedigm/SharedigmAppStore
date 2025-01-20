@@ -8,6 +8,7 @@ The [Terminal](https://www.sharedigm.com/#apps/terminal) app lets you interact v
 
 <p align="center" style="text-align:center">
 	<img src="images/info/terminal.png" width="720" style="border-radius:6px" />
+	<div align="center">Terminal</div>
 </p>
 
 ## Features

@@ -8,6 +8,7 @@ The [Decibel Meter](https://www.sharedigm.com/#apps/decibel-meter) app shows you
 
 <p align="center" style="text-align:center">
 	<img src="images/info/decibel-meter.png" width="300" style="border-radius:6px" />
+	<div align="center">Decibel Meter</div>
 </p>
 
 ## Features

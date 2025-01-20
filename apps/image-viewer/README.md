@@ -8,6 +8,7 @@ The [Image Viewer](https://www.sharedigm.com/#apps/image-viewer) app lets you vi
 
 <p align="center" style="text-align:center">
 	<img src="images/info/image-viewer.png" width="720" style="border-radius:6px" />
+	<div align="center">Image Viewer</div>
 </p>
 
 ## Features

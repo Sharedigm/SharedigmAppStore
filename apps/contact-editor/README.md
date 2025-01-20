@@ -8,6 +8,7 @@ The [Contact Editor](https://www.sharedigm.com/#apps/contact-editor) app lets yo
 
 <p align="center" style="text-align:center">
 	<img src="images/info/contact-editor.png" width="720" style="border-radius:6px" />
+	<div align="center">Contact Editor</div>
 </p>
 
 ## Features

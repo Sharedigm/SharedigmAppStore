@@ -8,6 +8,7 @@ The [Topic Viewer](https://www.sharedigm.com/#apps/topic-viewer) app lets you vi
 
 <p align="center" style="text-align:center">
 	<img src="images/info/topic-viewer.png" width="720" style="border-radius:6px" />
+	<div align="center">Topic Viewer</div>
 </p>
 
 ## Features

@@ -8,6 +8,7 @@ The [Settings Browser](https://www.sharedigm.com/#apps/settings-browser) app let
 
 <p align="center" style="text-align:center">
 	<img src="images/info/settings-browser.png" width="720" style="border-radius:6px" />
+	<div align="center">Settings Browser</div>
 </p>
 
 ## Features

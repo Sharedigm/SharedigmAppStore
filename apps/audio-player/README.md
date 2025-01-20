@@ -8,6 +8,7 @@ The [Audio Player](https://www.sharedigm.com/#apps/audio-player) app is used to 
 
 <p align="center" style="text-align:center">
 	<img src="images/info/audio-player.png" width="720" style="border-radius:6px" />
+	<div align="center">Audio Player</div>
 </p>
 
 ## Features

@@ -8,6 +8,7 @@ The [Calculator](https://www.sharedigm.com/#apps/calculator) app lets you conven
 
 <p align="center" style="text-align:center">
 	<img src="images/info/calculator.png" width="300" style="border-radius:6px" />
+	<div align="center">Calculator</div>
 </p>
 
 ## Features

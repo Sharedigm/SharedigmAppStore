@@ -8,6 +8,7 @@ The [Communicator](https://www.sharedigm.com/#apps/communicator) app lets you vi
 
 <p align="center" style="text-align:center">
 	<img src="images/info/communicator.png" width="720" style="border-radius:6px" />
+	<div align="center">Communicator</div>
 </p>
 
 ## Features

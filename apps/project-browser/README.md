@@ -8,6 +8,7 @@ The [Project Browser](https://www.sharedigm.com/#apps/project-browser) app is us
 
 <p align="center" style="text-align:center">
 	<img src="images/info/project-browser.png" width="720" style="border-radius:6px" />
+	<div align="center">Project Browser</div>
 </p>
 
 ## Features

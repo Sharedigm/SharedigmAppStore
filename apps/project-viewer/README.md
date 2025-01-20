@@ -8,6 +8,7 @@ The [Project Viewer](https://www.sharedigm.com/#apps/project-viewer) app is used
 
 <p align="center" style="text-align:center">
 	<img src="images/info/project-viewer.png" width="720" style="border-radius:6px" />
+	<div align="center">Project Viewer</div>
 </p>
 
 ## Features

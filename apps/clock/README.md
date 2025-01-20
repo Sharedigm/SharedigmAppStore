@@ -8,6 +8,7 @@ The [Clock](https://www.sharedigm.com/#apps/clock) app displays the current time
 
 <p align="center" style="text-align:center">
 	<img src="images/info/analog-clock.png" width="300" style="border-radius:6px" />
+	<div align="center">Clock</div>
 </p>
 
 ## Features

@@ -8,6 +8,7 @@ The [Code Editor](https://www.sharedigm.com/#apps/code-editor) app lets you read
 
 <p align="center" style="text-align:center">
 	<img src="images/info/code-editor.png" width="720" style="border-radius:6px" />
+	<div align="center">Code Editor</div>
 </p>
 
 ## Features

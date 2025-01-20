@@ -8,6 +8,7 @@ The [Timer](https://www.sharedigm.com/#apps/timer) app lets you time events, fun
 
 <p align="center" style="text-align:center">
 	<img src="images/info/timer.png" width="720" style="border-radius:6px" />
+	<div align="center">Timer</div>
 </p>
 
 ## Features
