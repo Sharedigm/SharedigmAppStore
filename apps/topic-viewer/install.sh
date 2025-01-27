@@ -19,6 +19,136 @@
 #
 appname="topic_viewer"
 
+# functions
+#
+
+function println {
+	if [ $force != 1 ]; then
+		echo $1
+	fi
+}
+
+function install_configs {
+	println "Installing configs."
+
+	# add to apps.json
+	#
+	if [ -f config/$dirname.json ]; then
+		app=`cat config/$dirname.json`
+		jq --tab ".$appname+= $app" $target/config/apps.json > apps.json
+		mv apps.json $target/config/apps.json
+	fi
+
+	# add to preferences.json
+	#
+	if [ -f config/preferences.json ]; then
+		preferences=`cat config/preferences.json`
+		jq --tab ".$appname+= $preferences" $target/config/preferences.json > preferences.json
+		mv preferences.json $target/config/preferences.json
+	fi
+}
+
+function install_scripts {
+	println "Installing scripts."
+	scripts=$1
+	if [ -d $scripts ]; then
+		rm -rf "$target/scripts/views/apps/$dirname"
+		cp -rf $scripts "$target/scripts/views/apps/$dirname"
+	fi
+}
+
+function install_styles {
+	println "Installing styles."
+	styles=$1
+	if [ -f $styles/_$dirname.scss ]; then
+
+		# add to styles index if new
+		#
+		if [ ! -f "$target/styles/apps/_$dirname.scss" ]; then
+			printf "\n@use \"$dirname\";" >> "$target/styles/apps/_index.scss"
+		fi
+
+		# update styles file
+		#
+		cp -f $styles/_$dirname.scss "$target/styles/apps/_$dirname.scss"
+		
+		# if not batch updating
+		#
+		if [ $force != 1 ]; then
+
+			# recompile styles
+			#
+			sass $target/styles/styles.scss "$target/styles/styles.css"
+		fi
+	fi
+}
+
+function install_templates {
+	println "Installing templates."
+	templates=$1
+	cp -f $templates/$dirname.tpl $target/templates/apps
+}
+
+function install_images {
+	println "Installing images."
+	images=$1
+
+	# add app icon image
+	#
+	if [ -f $images/icons/icon.svg ]; then
+		cp -r $images/icons/icon.svg $target/images/icons/apps/$dirname.svg
+	fi
+
+	# add documentation images
+	#
+	if [ -d $images/info ]; then
+		rm -rf "$target/images/info/apps/$dirname"
+		cp -r $images/info "$target/images/info/apps/$dirname"
+	fi
+}
+
+function install_dependency {
+	dependency=$1
+
+	# install model
+	#
+	if [[ $dependency == "models"* ]]; then
+		if [[ ! -d "$target/scripts/$dependency" ]]; then
+			cp -r ../../common/$dependency "$target/scripts/models"
+		fi
+	fi
+
+	# install collection
+	#
+	if [[ $dependency == "collections"* ]]; then
+		if [[ ! -d "$target/scripts/$dependency" ]]; then
+			cp -r ../../common/$dependency "$target/scripts/collections"
+		fi
+	fi
+
+	# install app
+	#
+	if [[ $dependency == "apps"* ]]; then
+		if [[ ! -d "$target/scripts/views/$dependency" ]]; then
+			cp -r ../../$dependency/src/scripts "$target/scripts/views/$dependency"
+		fi
+	fi
+}
+
+function install_dependencies {
+	println "Installing dependencies."
+	dependencies=$1
+
+	# iterate through lines in dependencies file
+	#
+	if [ -f $dependencies ]; then
+		while IFS= read -r line; do
+			install_dependency $line
+		done < "$dependencies"
+		install_dependency $line
+	fi
+}
+
 # check command line arguments
 #
 if [ "$1" == "" ] || [ $# -gt 2 ]; then
@@ -33,14 +163,6 @@ force=0
 if [ $# -eq 2 ] && [ "$2" == "-f" ]; then
 	force=1
 fi
-
-# output function
-#
-function println {
-	if [ $force != 1 ]; then
-		echo $1
-	fi
-}
 
 # confirm install
 #
@@ -61,77 +183,14 @@ println "Installing $appname to $target..."
 #
 dirname=${appname//_/-}
 
-# add to scripts
+# install app components
 #
-println "Adding to scripts."
-if [ -d src/scripts ]; then
-	rm -rf "$target/scripts/views/apps/$dirname"
-	cp -rf src/scripts "$target/scripts/views/apps/$dirname"
-fi
-
-# add to styles
-#
-println "Adding to styles."
-if [ -f src/styles/_$dirname.scss ]; then
-
-	# add to styles index if new
-	#
-	if [ ! -f "$target/styles/apps/_$dirname.scss" ]; then
-		printf "\n@use \"$dirname\";" >> "$target/styles/apps/_index.scss"
-	fi
-
-	# update styles file
-	#
-	cp -f src/styles/_$dirname.scss "$target/styles/apps/_$dirname.scss"
-	
-	# if not batch updating
-	#
-	if [ $force != 1 ]; then
-
-		# recompile styles
-		#
-		sass $target/styles/styles.scss "$target/styles/styles.css"
-	fi
-fi
-
-# add to apps.json
-#
-println "Adding to launcher."
-if [ -f config/$dirname.json ]; then
-	app=`cat config/$dirname.json`
-	jq --tab ".$appname+= $app" $target/config/apps.json > apps.json
-	mv apps.json $target/config/apps.json
-fi
-
-# add to preferences.json
-#
-println "Adding to preferences."
-if [ -f config/preferences.json ]; then
-	preferences=`cat config/preferences.json`
-	jq --tab ".$appname+= $preferences" $target/config/preferences.json > preferences.json
-	mv preferences.json $target/config/preferences.json
-fi
-
-# add to icons
-#
-println "Adding app icon."
-if [ -f images/icons/icon.svg ]; then
-	cp images/icons/icon.svg $target/images/icons/apps/$dirname.svg
-fi
-
-# add to templates
-#
-println "Adding template to documentation."
-if [ -f src/templates/$dirname.tpl ]; then
-	cp src/templates/$dirname.tpl $target/templates/apps
-fi
-
-# add to images
-#
-println "Adding images to documentation."
-if [ -d images/info ]; then
-	cp -r images/info $target/images/info/apps/$dirname
-fi
+install_configs
+install_scripts "src/scripts"
+install_styles "src/styles"
+install_templates "src/templates"
+install_images "images"
+install_dependencies "dependencies.txt"
 
 # finished
 #

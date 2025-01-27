@@ -80,7 +80,7 @@ export default SideBarPanelView.extend({
 
 			// show default topic
 			//
-			application.showTopic(TopicViewerView.default.default_topic);
+			application.showModel(TopicViewerView.default.default_topic);
 		});
 	},
 

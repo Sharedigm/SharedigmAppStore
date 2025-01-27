@@ -16,7 +16,7 @@
 \******************************************************************************/
 
 import Notifications from '../../../collections/notifications/notifications.js';
-import ConnectionRequests from '../../../collections/users/connections/connection-requests.js';
+import ConnectionRequests from '../../../collections/connections/connection-requests.js';
 import AppView from '../../../views/apps/common/app-view.js';
 import HeaderBarView from '../../../views/apps/notification-center/header-bar/header-bar-view.js';
 import NotificationsView from '../../../views/apps/notification-center/mainbar/notifications-view.js';

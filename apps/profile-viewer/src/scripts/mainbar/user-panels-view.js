@@ -22,9 +22,6 @@ import UserProfileHeaderView from '../../../../views/users/profile/user-profile-
 import UserProfileView from '../../../../views/apps/profile-viewer/mainbar/profile/user-profile-view.js';
 import UserFilesView from '../../../../views/apps/profile-viewer/mainbar/files/user-files-view.js';
 import UserPhotosView from '../../../../views/apps/profile-viewer/mainbar/photos/user-photos-view.js';
-import ConnectionRequestsView from '../../../../views/users/connection-requests/connection-requests-view.js';
-import UserNotificationsView from '../../../../views/apps/common/notifications/user-notifications-view.js';
-import UserSharingView from '../../../../views/apps/profile-viewer/mainbar/sharing/user-sharing-view.js';
 
 export default BaseView.extend({
 
@@ -75,31 +72,6 @@ export default BaseView.extend({
 					<label>Photos</label>
 				</a>
 			</li>
-		
-			<% if (false) { %>
-			<% if (is_current) { %>
-			<li role="presentation" class="requests tab<% if (nav == 'requests') { %> active<% } %>" style="display:none">
-				<a role="tab" data-toggle="tab" href=".requests.tab-pane" class="visible-xs-inline">
-					<i class="fa fa-user-plus"></i>
-					<label>Requests</label>>
-				</a>
-			</li>
-		
-			<li role="presentation" class="notifications tab<% if (nav == 'notifications') { %> active<% } %>" style="display:none">
-				<a role="tab" data-toggle="tab" href=".notifications.tab-pane" class="visible-xs-inline">
-					<i class="fa fa-exclamation-triangle"></i>
-					<label>Notifications</label>
-				</a>
-			</li>
-		
-			<li role="presentation" class="sharing tab<% if (nav == 'sharing') { %> active<% } %>" style="display:none">
-				<a role="tab" data-toggle="tab" href=".sharing.tab-pane">
-					<i class="fa fa-share"></i>
-					<label>Sharing</label>
-				</a>
-			</li>
-			<% } %>
-			<% } %>
 		</ul>
 		
 		<div class="tab-content">
@@ -116,15 +88,6 @@ export default BaseView.extend({
 			</div>
 		
 			<div role="tabpanel" class="photos tab-pane<% if (nav == 'photos') { %> active<% } %>">
-			</div>
-		
-			<div role="tabpanel" class="requests tab-pane<% if (nav == 'requests') { %> active<% } %>">
-			</div>
-		
-			<div role="tabpanel" class="notifications tab-pane<% if (nav == 'notifications') { %> active<% } %>">
-			</div>
-		
-			<div role="tabpanel" class="sharing tab-pane<% if (nav == 'sharing') { %> active<% } %>">
 			</div>
 		</div>
 	`),
@@ -312,15 +275,6 @@ export default BaseView.extend({
 			case 'photos':
 				this.showUserPhotos();
 				break;
-			case 'requests':
-				this.showConnectionRequests();
-				break;
-			case 'notifications':
-				this.showUserNotifications();
-				break;
-			case 'sharing':
-				this.showUserSharing();
-				break;
 		}	
 	},
 
@@ -495,25 +449,6 @@ export default BaseView.extend({
 			// callbacks
 			//
 			onopen: this.options.onopen
-		}));
-	},
-
-	showConnectionRequests: function() {
-		this.showChildView('requests', new ConnectionRequestsView({
-			model: this.model
-		}));
-	},
-
-	showUserNotifications: function() {
-		this.showChildView('notifications', new UserNotificationsView({
-			model: this.model
-		}));
-	},
-
-	showUserSharing: function() {
-		this.showChildView('sharing', new UserSharingView({
-			model: this.model,
-			nav: this.options.tab
 		}));
 	},
 

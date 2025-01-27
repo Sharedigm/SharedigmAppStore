@@ -1,7 +1,7 @@
 {
 	"name": "Themes",
 	"icon": "fa fa-paint-roller",
-	"category": "system",
+	"category": "configuration",
 	"platform": "all",
 	"access": "user",
 	"disabled": false,

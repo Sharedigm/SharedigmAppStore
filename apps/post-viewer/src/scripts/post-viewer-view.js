@@ -75,6 +75,15 @@ export default AppSplitView.extend(_.extend({}, ItemOpenable, LinkShareable, {
 			this.options.dislikeable = false;
 		}
 
+		// set default topic
+		//
+		if (!this.constructor.default_topic) {
+			this.constructor.default_topic = new Topic({
+				id: 0,
+				name: this.constructor.getDefaultTopicName()
+			});
+		}
+
 		// set attributes
 		//
 		this.topic = new Topic({
@@ -100,7 +109,8 @@ export default AppSplitView.extend(_.extend({}, ItemOpenable, LinkShareable, {
 
 	getDefaultTopic: function() {
 		let name = this.preferences.get('default_topic');
-		if (!name || name == '' || name == config.apps.topic_viewer.defaults.topic.name) {
+
+		if (this.constructor.isDefaultTopicName(name)) {
 			return this.constructor.default_topic;
 		} else {
 			return this.getTopicByName(name);
@@ -471,8 +481,22 @@ export default AppSplitView.extend(_.extend({}, ItemOpenable, LinkShareable, {
 }), {
 
 	//
-	// static attributes
+	// static methods
 	//
 
-	default_topic: new Topic(config.apps.topic_viewer.defaults.topic),
+	isDefaultTopicName: function(name) {
+		return name && name != '' && this.getDefaultTopicName() == name;
+	},
+
+	hasDefaultTopicName: function() {
+		return this.getTopicName() != undefined;
+	},
+
+	getPreferences: function() {
+		return config.preferences.post_viewer || {};
+	},
+
+	getDefaultTopicName: function() {
+		return this.getPreferences().default_topic;
+	}
 });

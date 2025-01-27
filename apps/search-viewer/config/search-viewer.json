@@ -1,7 +1,7 @@
 {
 	"name": "Search",
 	"icon": "fa fa-search",
-	"category": "utility",
+	"category": "system",
 	"platform": "all",
 	"access": "all",
 	"disabled": false,

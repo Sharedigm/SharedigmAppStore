@@ -1,7 +1,7 @@
 {
 	"name": "Theme Picker",
 	"icon": "fa fa-mouse-pointer",
-	"category": "system",
+	"category": "configuration",
 	"platform": "mobile",
 	"access": "user",
 	"disabled": false,

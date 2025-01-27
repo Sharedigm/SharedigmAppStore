@@ -12,7 +12,7 @@
 	</div>
 
 	<div class="description section">
-		<p>The <%= config.apps['chat_browser'].name %> app lets you exchange private direct messages with your connections. </p>
+		<p>The <%= config.apps['chat_browser'].name %> app lets you view and manage your direct messaging chat sessions. </p>
 	</div>
 
 	<div class="details section">
@@ -20,15 +20,15 @@
 			<div class="col-sm-6">
 				<h2><i class="fa fa-check"></i>Features</h2>
 				<ul>
-					<li>Direct message friends in a private chat.</li>
-					<li>Invite one or more friends to a chat session.</li>
-					<li>Attach photos, files, and folders to chat messages.</li> 
+					<li>View your chat sessions.</li>
+					<li>View participant names, number of chat participants, and number of messages.</li>
+					<li>View and sort by create or modify date.</li> 
 				</ul>
 			</div>
 			<div class="col-sm-6">
 				<h2><i class="fa fa-star"></i>Benefits</h2>
 				<ul>
-					<li>Allows you to have private discussions with one or more of your connections. </li>
+					<li>Manage your chat communications easily.</li>
 				</ul>
 			</div>
 		</div>

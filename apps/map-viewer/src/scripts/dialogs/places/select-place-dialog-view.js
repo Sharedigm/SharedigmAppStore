@@ -123,7 +123,7 @@ export default DialogView.extend({
 
 			// app options
 			//
-			place: this.options.place,
+			place: this.model,
 			show_address: true,
 			dialog: this,
 			hidden: {

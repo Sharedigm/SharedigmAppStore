@@ -1,7 +1,7 @@
 {
 	"name": "PDF",
 	"icon": "fa fa-file-pdf",
-	"category": "multimedia",
+	"category": "productivity",
 	"platform": "all",
 	"access": "user",
 	"disabled": false,

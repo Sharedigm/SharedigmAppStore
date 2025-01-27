@@ -1,0 +1,31 @@
+#******************************************************************************#
+#                                                                              #
+#                               dependencies.txt                               #
+#                                                                              #
+#******************************************************************************#
+#                                                                              #
+#        This is a list of dependencies for a Sharedigm app.                   #
+#                                                                              #
+#        Author(s): Abe Megahed                                                #
+#                                                                              #
+#        This file is subject to the terms and conditions defined in           #
+#        'LICENSE.md', which is part of this source code distribution.         #
+#                                                                              #
+#******************************************************************************#
+#        Copyright (C) 2016-2024, Megahed Labs LLC, www.sharedigm.com          #
+#******************************************************************************#
+
+# models
+#
+models/connections
+models/weather
+
+# collections
+#
+collections/connections
+collections/weather
+
+# apps
+#
+apps/connection-manager
+apps/profile-browser

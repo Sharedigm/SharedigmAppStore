@@ -16,7 +16,7 @@
 \******************************************************************************/
 
 import UserPreferences from '../../../../../models/preferences/user-preferences.js';
-import Connections from '../../../../../collections/users/connections/connections.js';
+import Connections from '../../../../../collections/connections/connections.js';
 import ShareRequests from '../../../../../collections/storage/sharing/share-requests.js';
 import InfoFormView from '../../../../../views/apps/common/forms/info-form-view.js';
 import UserIconView from '../../../../../views/apps/profile-browser/mainbar/users/icons/user-icon-view.js';

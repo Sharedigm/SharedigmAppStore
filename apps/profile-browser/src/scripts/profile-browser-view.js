@@ -347,7 +347,7 @@ export default AppSplitView.extend(_.extend({}, SelectableContainable, MultiSele
 
 	showConnectionRequestDialog: function(users) {
 		import(
-			'../../../views/users/connection-requests/dialogs/connection-request-dialog-view.js'
+			'../../../views/apps/connection-manager/dialogs/connections/connection-request-dialog-view.js'
 		).then((ConnectionRequestDialogView) => {
 
 			// show connection request dialog

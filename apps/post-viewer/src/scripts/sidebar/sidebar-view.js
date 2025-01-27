@@ -113,7 +113,7 @@ export default SideBarView.extend({
 
 			// callbacks
 			//
-			onload: (model) => this.onLoad(model),
+			onload: (topics) => this.onLoad(topics),
 			onselect: this.options.onselect,
 			ondeselect: this.options.ondeselect,
 			onopen: this.options.onopen,
@@ -121,9 +121,15 @@ export default SideBarView.extend({
 		}));		
 	},
 
-	onLoad: function(model) {
-		this.model = model;
-		this.showTopicInfoPanel();
+	onLoad: function(topics) {
+
+		// set attributes
+		//
+		this.model = topics.at(0);
+
+		// update view
+		//
+		this.showInfoPanel();
 	},
 
 	//

@@ -1,7 +1,7 @@
 {
 	"name": "Settings Manager",
 	"icon": "fa fa-cog",
-	"category": "system",
+	"category": "configuration",
 	"platform": "all",
 	"access": "all",
 	"disabled": false,

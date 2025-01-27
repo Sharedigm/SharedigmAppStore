@@ -16,7 +16,7 @@
 \******************************************************************************/
 
 import UserPreferences from '../../../../../../models/preferences/user-preferences.js';
-import Connection from '../../../../../../models/users/connections/connection.js';
+import Connection from '../../../../../../models/connections/connection.js';
 import Items from '../../../../../../collections/storage/items.js';
 import Selectable from '../../../../../../views/behaviors/selection/selectable.js';
 import ModelView from '../../../../../../views/items/model-view.js';

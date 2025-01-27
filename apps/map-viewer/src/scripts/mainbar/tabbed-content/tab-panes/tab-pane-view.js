@@ -19,7 +19,7 @@ import Place from '../../../../../../models/places/place.js';
 import MapFile from '../../../../../../models/storage/files/map-file.js';
 import Places from '../../../../../../collections/places/places.js';
 import Items from '../../../../../../collections/storage/items.js';
-import Connections from '../../../../../../collections/users/connections/connections.js';
+import Connections from '../../../../../../collections/connections/connections.js';
 import MapView from '../../../../../../views/maps/map-view.js';
 import EditableTabPaneView from '../../../../../../views/apps/common/mainbar/tabbed-content/editable-tab-panes/editable-tab-pane-view.js';
 import WeatherMapView from '../../../../../../views/maps/weather-map-view.js';

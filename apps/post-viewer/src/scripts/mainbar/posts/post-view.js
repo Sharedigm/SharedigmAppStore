@@ -15,7 +15,7 @@
 |        Copyright (C) 2016-2024, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
-import Connection from '../../../../../models/users/connections/connection.js';
+import Connection from '../../../../../models/connections/connection.js';
 import Topic from '../../../../../models/topics/topic.js';
 import UserPreferences from '../../../../../models/preferences/user-preferences.js';
 import Items from '../../../../../collections/storage/items.js';
@@ -549,12 +549,6 @@ export default ModelView.extend(_.extend({}, Collapsable, Selectable, FileDownlo
 			this.$el.find('button.comment').hide();
 		}
 		*/
-
-		// start tiles spinning at random intervals
-		//
-		window.setTimeout(() => {
-			this.$el.find('.tile').addClass('spinnable3d');
-		}, Math.floor(Math.random() * 2000));
 
 		// add tooltip triggers
 		//

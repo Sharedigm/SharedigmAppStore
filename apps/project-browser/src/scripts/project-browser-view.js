@@ -136,7 +136,7 @@ export default AppSplitView.extend(_.extend({}, SelectableContainable, MultiSele
 		// open selected projects in project viewer after delay
 		//
 		window.setTimeout(() => {
-			application.showProjects(this.getSelectedModels());
+			application.showCollection(new Projects(this.getSelectedModels()));
 		}, delay);
 	},
 

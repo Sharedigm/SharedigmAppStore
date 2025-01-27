@@ -15,7 +15,7 @@
 |        Copyright (C) 2016-2024, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
-import Connection from '../../../models/users/connections/connection.js';
+import Connection from '../../../models/connections/connection.js';
 import Post from '../../../models/topics/post.js';
 import UserProfile from '../../../models/users/profile/user-profile.js';
 import Gesture from '../../../models/gestures/gesture.js';
@@ -23,7 +23,7 @@ import File from '../../../models/storage/files/file.js';
 import Directory from '../../../models/storage/directories/directory.js';
 import Place from '../../../models/places/place.js';
 import CheckIn from '../../../models/places/check-in.js';
-import Connections from '../../../collections/users/connections/connections.js';
+import Connections from '../../../collections/connections/connections.js';
 import AppSplitView from '../../../views/apps/common/app-split-view.js';
 import ItemOpenable from '../../../views/apps/common/behaviors/opening/item-openable.js';
 import ConnectionShareable from '../../../views/apps/common/behaviors/sharing/connection-shareable.js';
@@ -418,7 +418,7 @@ export default AppSplitView.extend(_.extend({}, ItemOpenable, ConnectionShareabl
 	},
 
 	openPost: function(post) {
-		application.showPost(post);
+		application.showModel(post);
 	},
 
 	//

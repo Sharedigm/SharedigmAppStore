@@ -29,9 +29,9 @@
 		"chats"
 	],
 	"sidebar_info_kind": {
-		"phone": "auto",
-		"tablet": "auto",
-		"desktop": "auto"
+		"phone": "icons",
+		"tablet": "icons",
+		"desktop": "icons"
 	},
 	"sidebar_view_kind": {
 		"phone": "lists",

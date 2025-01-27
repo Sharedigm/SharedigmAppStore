@@ -17,12 +17,12 @@
 
 import File from '../../../models/storage/files/file.js';
 import Directory from '../../../models/storage/directories/directory.js';
-import Connection from '../../../models/users/connections/connection.js';
-import Group from '../../../models/users/connections/group.js';
-import Member from '../../../models/users/connections/member.js';
+import Connection from '../../../models/connections/connection.js';
+import Group from '../../../models/connections/group.js';
+import Member from '../../../models/connections/member.js';
 import Gesture from '../../../models/gestures/gesture.js';
-import Connections from '../../../collections/users/connections/connections.js';
-import Groups from '../../../collections/users/connections/groups.js';
+import Connections from '../../../collections/connections/connections.js';
+import Groups from '../../../collections/connections/groups.js';
 import SelectableContainable from '../../../views/behaviors/containers/selectable-containable.js';
 import MultiSelectable from '../../../views/behaviors/selection/multi-selectable.js';
 import AppSplitView from '../../../views/apps/common/app-split-view.js';
@@ -497,7 +497,7 @@ export default AppSplitView.extend(_.extend({}, SelectableContainable, MultiSele
 
 					// show first chat
 					//
-					application.showChat(collection.getChatByUser(this.getSelectedModel()), {
+					application.showModel(collection.getChatByUser(this.getSelectedModel()), {
 						message: config.apps.file_browser.share_invitation_message
 					});
 				}

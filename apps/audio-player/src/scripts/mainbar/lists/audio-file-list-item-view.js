@@ -31,7 +31,7 @@ export default FileItemView.extend({
 			</div>
 		
 			<div class="icon">
-				<i class="fa fa-spinner"></i>
+				<i class="fa fa-spinner spinning"></i>
 				<%= icon %>
 			</div>
 			
@@ -134,7 +134,7 @@ export default FileItemView.extend({
 	//
 
 	onLoad: function() {
-		this.showStatus('fa fa-spinner spinning');
+		this.showStatus('fa fa-spinner');
 		this.listenToOnce(this.model, 'loaded', this.onLoaded);
 	},
 

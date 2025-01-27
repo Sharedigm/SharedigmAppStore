@@ -65,7 +65,7 @@ if [ $# -lt 2 ] ; then
 
 		# uninstall non-core apps
 		#
-		if [ $app != 'app' ] && [ $app != 'file-browser' ] && [ $app != 'help-viewer' ] && [ $app != 'settings-browser' ] && [ $app != 'settings-manager' ]; then
+		if [ $app != 'app' ] && [ $app != 'app-launcher' ]  && [ $app != 'file-browser' ] && [ $app != 'help-viewer' ] && [ $app != 'settings-browser' ] && [ $app != 'settings-manager' ]; then
 			uninstall_app $app
 		fi
 	done

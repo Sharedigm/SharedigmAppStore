@@ -137,7 +137,7 @@ export default SideBarView.extend({
 
 			// options
 			//
-			view_kind: this.options.view_kind
+			view_kind: this.options.info_kind != 'auto'? this.options.info_kind : this.options.view_kind,
 		}));		
 	},
 

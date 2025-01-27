@@ -15,7 +15,7 @@
 |        Copyright (C) 2016-2024, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
-import UserEvents from '../../../collections/users/events/user-events.js';
+import UserEvents from '../../../collections/events/user-events.js';
 import AppSplitView from '../../../views/apps/common/app-split-view.js';
 import HeaderBarView from '../../../views/apps/calendar/header-bar/header-bar-view.js';
 import SideBarView from '../../../views/apps/calendar/sidebar/sidebar-view.js';

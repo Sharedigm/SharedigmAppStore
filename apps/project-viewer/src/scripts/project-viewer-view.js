@@ -49,10 +49,22 @@ export default AppSplitView.extend(_.extend({}, MultiDoc, ContainableSelectable,
 		//
 		AppSplitView.prototype.initialize.call(this);
 
+		// set default topic
+		//
+		if (!this.constructor.default_project) {
+			this.constructor.default_project = new Project({
+				id: 0,
+				name: this.constructor.getDefaultProjectName()
+			});
+		}
+
 		// set attributes
 		//
+		if (this.collection) {
+			this.model = this.collection.at(this.collection.length - 1);
+		}
 		if (!this.model) {
-			this.model = this.constructor.defaultProject;
+			this.model = this.constructor.default_project;
 		}
 		if (!this.collection) {
 			this.collection = new BaseCollection([this.model]);
@@ -139,7 +151,7 @@ export default AppSplitView.extend(_.extend({}, MultiDoc, ContainableSelectable,
 	//
 
 	getDefaultProject: function() {
-		return this.constructor.defaultProject;
+		return this.constructor.default_project;
 	},
 
 	getTaskProject: function(task) {
@@ -312,7 +324,7 @@ export default AppSplitView.extend(_.extend({}, MultiDoc, ContainableSelectable,
 
 					// reset selected project
 					//
-					this.setProject(this.constructor.defaultProject);
+					this.setProject(this.constructor.default_project);
 
 					// play remove sound
 					//
@@ -819,8 +831,22 @@ export default AppSplitView.extend(_.extend({}, MultiDoc, ContainableSelectable,
 }), {
 
 	//
-	// static attributes
+	// static methods
 	//
 
-	defaultProject: new Project(config.apps.project_viewer.defaults.project)
+	isDefaultProjectName: function(name) {
+		return name && name != '' && this.getDefaultProjectName() == name;
+	},
+
+	hasDefaultProjectName: function() {
+		return this.getTopicName() != undefined;
+	},
+
+	getPreferences: function() {
+		return config.preferences.project_viewer || {};
+	},
+
+	getDefaultProjectName: function() {
+		return this.getPreferences().default_project;
+	}
 });

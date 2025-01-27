@@ -60,6 +60,15 @@ export default AppSplitView.extend(_.extend({}, MultiDoc, ContainableSelectable,
 		//
 		AppSplitView.prototype.initialize.call(this);
 
+		// set default topic
+		//
+		if (!this.constructor.default_topic) {
+			this.constructor.default_topic = new Topic({
+				id: 0,
+				name: this.constructor.getDefaultTopicName()
+			});
+		}
+
 		// set attributes
 		//
 		if (!this.model) {
@@ -200,8 +209,9 @@ export default AppSplitView.extend(_.extend({}, MultiDoc, ContainableSelectable,
 
 	getDefaultTopic: function() {
 		let name = this.preferences.get('default_topic');
-		if (!name || name == '' || name == config.apps.topic_viewer.defaults.topic.name) {
-			return TopicViewerView.default_topic;
+
+		if (this.constructor.isDefaultTopicName(name)) {
+			return this.constructor.default_topic;
 		} else {
 			return this.getTopicByName(name);
 		}
@@ -1406,4 +1416,25 @@ export default AppSplitView.extend(_.extend({}, MultiDoc, ContainableSelectable,
 			this.request2.abort();
 		}
 	}
-}));
+}), {
+
+	//
+	// static methods
+	//
+
+	isDefaultTopicName: function(name) {
+		return name && name != '' && this.getDefaultTopicName() == name;
+	},
+
+	hasDefaultTopicName: function() {
+		return this.getTopicName() != undefined;
+	},
+
+	getPreferences: function() {
+		return config.preferences.communicator || {};
+	},
+
+	getDefaultTopicName: function() {
+		return this.getPreferences().default_topic;
+	}
+});

@@ -12,7 +12,7 @@
 	</div>
 
 	<div class="description section">
-		<p>The <%= config.apps['map_viewer'].name %> app lets you view and explore an interactive map. </p>
+		<p>The <%= config.apps['map_viewer'].name %> app lets you view and explore interactive maps. </p>
 	</div>
 
 	<div class="details section">
@@ -20,17 +20,21 @@
 			<div class="col-sm-6">
 				<h2><i class="fa fa-check"></i>Features</h2>
 				<ul>	
-					<li>View maps in the following modes:
+					<li>View maps in a variety of modes:
 						<ul>
-							<li>map</li>
-							<li>aerial</li>
-							<li>hybrid</li>
+							<li>Map</li>
+							<li>Satellite</li>
+							<li>Hybrid</li>
+							<li>Streets</li>
+							<li>Transportation</li>
+							<li>Elevation</li>
+							<li>Aeronautical</li>
 						</ul>
 					</li>
 					<li>Search maps by:
 						<ul>
-							<li>coordinates</li>
-							<li>address</li>
+							<li>Coordinates</li>
+							<li>Address</li>
 						</ul>
 					</li>
 					<li>Measure distances between locations. Choose between:

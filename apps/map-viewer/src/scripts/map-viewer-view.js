@@ -1411,7 +1411,7 @@ export default AppSplitView.extend(_.extend({}, FileDownloadable, FileUploadable
 
 			// show default topic
 			//
-			application.showTopic(TopicViewerView.default.default_topic, {
+			application.showModel(TopicViewerView.default.default_topic, {
 				check_in: place
 			});
 		});
@@ -1429,7 +1429,7 @@ export default AppSplitView.extend(_.extend({}, FileDownloadable, FileUploadable
 
 					// show first chat
 					//
-					application.showChat(collection.at(0), {
+					application.showModel(collection.at(0), {
 						check_in: place
 					});
 				}

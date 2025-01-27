@@ -1,7 +1,7 @@
 {
 	"name": "Settings",
 	"icon": "fa fa-cogs",
-	"category": "system",
+	"category": "configuration",
 	"platform": "all",
 	"access": "all",
 	"disabled": false,
