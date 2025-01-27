@@ -48,6 +48,10 @@ export default User.extend({
 	// getting methods
 	//
 
+	getClassName: function() {
+		return 'connection';
+	},
+
 	getAge: function() {
 		if (this.has('birth_date')) {
 			return TimeUtils.getElapsedTime(this.get('birth_date'), new Date(), 'years');

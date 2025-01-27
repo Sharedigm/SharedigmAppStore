@@ -73,6 +73,14 @@ export default Timestamped.extend({
 	},
 
 	//
+	// getting methods
+	//
+
+	getClassName: function() {
+		return 'reply';
+	},
+
+	//
 	// liking methods
 	//
 

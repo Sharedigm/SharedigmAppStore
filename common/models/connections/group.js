@@ -58,6 +58,10 @@ export default Timestamped.extend({
 	// getting methods
 	//
 
+	getClassName: function() {
+		return 'group';
+	},
+
 	getName: function() {
 		return this.get('name');
 	},

@@ -37,6 +37,14 @@ export default Timestamped.extend({
 	urlRoot: config.servers.api + '/events',
 
 	//
+	// getting methods
+	//
+
+	getClassName: function() {
+		return 'user_event';
+	},
+
+	//
 	// parsing (Backbone) methods
 	//
 

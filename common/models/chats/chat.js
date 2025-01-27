@@ -57,7 +57,7 @@ export default Timestamped.extend({
 	},
 
 	hasUser: function(user) {
-		return this.has('members')? this.get('members').contains(user) : false;
+		return this.has('members')? this.get('members').includes(user) : false;
 	},
 
 	hasFirstOtherMember: function() {
@@ -81,6 +81,10 @@ export default Timestamped.extend({
 	//
 	// getting methods
 	//
+
+	getClassName: function() {
+		return 'chat';
+	},
 
 	getName: function(options) {
 

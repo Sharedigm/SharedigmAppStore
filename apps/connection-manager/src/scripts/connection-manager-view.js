@@ -494,10 +494,12 @@ export default AppSplitView.extend(_.extend({}, SelectableContainable, MultiSele
 				// callbacks
 				//
 				success: (collection) => {
+					let user = this.getSelectedModel();
+					let chat = collection.getChatByUser(user);
 
-					// show first chat
+					// show user's chat
 					//
-					application.showModel(collection.getChatByUser(this.getSelectedModel()), {
+					application.showModel(chat, {
 						message: config.apps.file_browser.share_invitation_message
 					});
 				}

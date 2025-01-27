@@ -44,6 +44,10 @@ export default BaseModel.extend({
 	// getting methods
 	//
 
+	getClassName: function() {
+		return 'contact';
+	},
+
 	getName: function(kind) {
 		switch (kind) {
 			case 'first':

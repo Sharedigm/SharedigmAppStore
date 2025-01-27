@@ -122,7 +122,7 @@ export default AppSplitView.extend(_.extend({}, SelectableContainable, MultiSele
 		// open selected chats in chat viewer after delay
 		//
 		window.setTimeout(() => {
-			application.showChats(this.getSelectedModels());
+			application.showCollection(new Chats(this.getSelectedModels()));
 		}, delay);
 	},
 

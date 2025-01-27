@@ -38,7 +38,6 @@ import HeaderBarView from '../../../views/apps/communicator/header-bar/header-ba
 import SideBarView from '../../../views/apps/communicator/sidebar/sidebar-view.js';
 import TabbedContentView from '../../../views/apps/communicator/mainbar/tabbed-content/tabbed-content-view.js';
 import FooterBarView from '../../../views/apps/communicator/footer-bar/footer-bar-view.js';
-import TopicViewerView from '../../../views/apps/topic-viewer/topic-viewer-view.js';
 import Browser from '../../../utilities/web/browser.js';
 import HtmlUtils from '../../../utilities/web/html-utils.js';
 
