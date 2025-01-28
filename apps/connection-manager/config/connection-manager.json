@@ -8,5 +8,6 @@
 	"hidden": false,
 	"args": false,
 	"color": "blue",
-	"group_icon_selector_path": "/Shared/Pictures"
+	"group_icon_selector_path": "/Shared/Pictures",
+	"connection_message": "Hi there!"
 }

@@ -18,7 +18,9 @@
 # models
 #
 models/chats
+models/connections
 
 # collections
 #
 collections/chats
+collections/connections

@@ -1405,15 +1405,18 @@ export default AppSplitView.extend(_.extend({}, FileDownloadable, FileUploadable
 	},
 
 	showPlaceByTopic: function(place) {
-		import(
-			'../../../views/apps/topic-viewer/topic-viewer-view.js'
-		).then((TopicViewerView) => {
 
-			// show default topic
-			//
-			application.showModel(TopicViewerView.default.default_topic, {
-				check_in: place
-			});
+		// show default topic
+		//
+		application.launch('topic_viewer', {
+			check_in: place
+		});
+	},
+
+	showPlaceByChat: function(place, chat) {
+		application.launch('chat_viewer', {
+			model: chat,
+			check_in: place
 		});
 	},
 
@@ -1429,9 +1432,7 @@ export default AppSplitView.extend(_.extend({}, FileDownloadable, FileUploadable
 
 					// show first chat
 					//
-					application.showModel(collection.at(0), {
-						check_in: place
-					});
+					this.showPlaceByChat(place, collection.at(0));
 				}
 			});
 		});

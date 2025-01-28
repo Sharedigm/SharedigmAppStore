@@ -130,7 +130,11 @@ export default BaseView.extend({
 
 		// set text contents
 		//
-		this.el.value = text;
+		if (text) {
+			this.el.value = text;
+		} else {
+			this.el.value = '';
+		}
 	},
 
 	setOption: function(key, value) {

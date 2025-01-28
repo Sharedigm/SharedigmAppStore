@@ -155,9 +155,7 @@ export default ContextMenuView.extend({
 	},
 
 	onClickShowOnMap: function() {
-		application.launch('map_viewer', {
-			people: this.parent.getSelectedGeolocatedModels()
-		});
+		this.parent.showSelectedGeolocatedModels();
 	},
 
 	onClickShareFiles: function() {

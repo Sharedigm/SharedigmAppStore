@@ -18,6 +18,11 @@
 	"sidebar_panels": [
 		"topics"
 	],
+	"sidebar_info_kind": {
+		"phone": "icon",
+		"tablet": "icons",
+		"desktop": "icons"
+	},
 	"sidebar_view_kind": {
 		"phone": "lists",
 		"tablet": "lists",

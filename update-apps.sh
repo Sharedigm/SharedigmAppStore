@@ -15,34 +15,86 @@
 #        Copyright (C) 2016-2024, Megahed Labs LLC, www.sharedigm.com          #
 #******************************************************************************#
 
-# check command line arguments
 #
-if [ $# -lt 1 ] ; then
-	echo "Usage: sh update-apps.sh SHAREDIGM_DIRECTORY [APP1 APP2 APP3...]"
-	exit 0
-fi
+# functions
+#
 
-# parse command line arguments
-#
-sourcedir=$1
+function update_installers {
 
-# confirm update
-#
-if [ $# -eq 1 ] ; then
-	echo "Would you like to update all apps from $sourcedir (Y/N)?"
-elif [ $# -eq 2 ] ; then
-	echo "Would you like to update $2 from $sourcedir (Y/N)?"
-else
-	echo "Would you like to update these $(($# - 1)) apps from $sourcedir (Y/N)?"
-fi
-read prompt
-if [ $prompt != 'y' ] && [ $prompt != 'Y' ]; then
-	echo "Quitting."
-	exit 0
-fi
+	# update installer and uninstaller
+	#
+	sed -i -e "s/APPNAME/$appname/g" "$appsdir/$dirname/install.sh"
+	sed -i -e "s/APPNAME/$appname/g" "$appsdir/$dirname/uninstall.sh"
 
-# update function
-#
+	# remove backup files (MacOS)
+	#
+	if [ -f "$appsdir/$dirname/install.sh-e" ]; then
+		rm "$appsdir/$dirname/install.sh-e"
+	fi
+	if [ -f "$appsdir/$dirname/uninstall.sh-e" ]; then
+		rm "$appsdir/$dirname/uninstall.sh-e"
+	fi
+}
+
+function update_configs {
+
+	# copy configs
+	#
+	jq ".$appname" $sourcedir/config/apps.json --tab > "$appsdir/$dirname/config/$dirname.json"
+	jq ".$appname" $sourcedir/config/preferences.json --tab > "$appsdir/$dirname/config/preferences.json"
+}
+
+function update_scripts {
+
+	# copy scripts
+	#
+	if [ -d $sourcedir/scripts/views/apps/$dirname ]; then
+		if [ ! -d $appsdir/$dirname/src/scripts ]; then
+			mkdir "$appsdir/$dirname/src/scripts"
+		fi
+		cp -rf $sourcedir/scripts/views/apps/$dirname/* "$appsdir/$dirname/src/scripts"
+	fi
+}
+
+function update_styles {
+
+	# copy styles
+	#
+	if [ -f $sourcedir/styles/apps/_$dirname.scss ]; then
+		if [ ! -d $appsdir/$dirname/src/styles ]; then
+			mkdir "$appsdir/$dirname/src/styles"
+		fi
+		cp -f $sourcedir/styles/apps/_$dirname.scss "$appsdir/$dirname/src/styles/"
+	fi
+}
+
+function update_templates {
+
+	# copy templates
+	#
+	if [ -f $sourcedir/templates/apps/$dirname.tpl ]; then
+		if [ ! -d $appsdir/$dirname/src/templates ]; then
+			mkdir "$appsdir/$dirname/src/templates"
+		fi
+		cp -f $sourcedir/templates/apps/$dirname.tpl "$appsdir/$dirname/src/templates/"
+	fi
+}
+
+function update_images {
+
+	# copy icon
+	#
+	if [ -f $sourcedir/images/icons/apps/$dirname.svg ]; then
+		cp -f $sourcedir/images/icons/apps/$dirname.svg "$appsdir/$dirname/images/icons/icon.svg"
+	fi
+
+	# copy images
+	#
+	if [ -d $sourcedir/images/info/apps/$dirname ]; then
+		cp -rf $sourcedir/images/info/apps/$dirname/* "$appsdir/$dirname/images/info"
+	fi
+}
+
 function update_app {
 	echo "Updating $1"
 
@@ -72,78 +124,31 @@ function update_app {
 		cp -f "$appsdir/app/"*.sh "$appsdir/$dirname/"
 	fi
 
-	# update installer and uninstaller
-	#
-	sed -i -e "s/APPNAME/$appname/g" "$appsdir/$dirname/install.sh"
-	sed -i -e "s/APPNAME/$appname/g" "$appsdir/$dirname/uninstall.sh"
-
-	# remove backup files (MacOS)
-	#
-	if [ -f "$appsdir/$dirname/install.sh-e" ]; then
-		rm "$appsdir/$dirname/install.sh-e"
-	fi
-	if [ -f "$appsdir/$dirname/uninstall.sh-e" ]; then
-		rm "$appsdir/$dirname/uninstall.sh-e"
-	fi
-
-	# copy configs
-	#
-	jq ".$appname" $sourcedir/config/apps.json --tab > "$appsdir/$dirname/config/$dirname.json"
-	jq ".$appname" $sourcedir/config/preferences.json --tab > "$appsdir/$dirname/config/preferences.json"
-
 	# create src directory
 	#
 	if [ ! -d $appsdir/$dirname/src/ ]; then
 		mkdir "$appsdir/$dirname/src/"
 	fi
 
-	# copy scripts
+	# update app support
 	#
-	if [ -d $sourcedir/scripts/views/apps/$dirname ]; then
-		if [ ! -d $appsdir/$dirname/src/scripts ]; then
-			mkdir "$appsdir/$dirname/src/scripts"
-		fi
-		cp -rf $sourcedir/scripts/views/apps/$dirname/* "$appsdir/$dirname/src/scripts"
-	fi
+	update_installers
+	update_configs
 
-	# copy styles
+	# update app components
 	#
-	if [ -f $sourcedir/styles/apps/_$dirname.scss ]; then
-		if [ ! -d $appsdir/$dirname/src/styles ]; then
-			mkdir "$appsdir/$dirname/src/styles"
-		fi
-		cp -f $sourcedir/styles/apps/_$dirname.scss "$appsdir/$dirname/src/styles/"
-	fi
-
-	# copy templates
-	#
-	if [ -f $sourcedir/templates/apps/$dirname.tpl ]; then
-		if [ ! -d $appsdir/$dirname/src/templates ]; then
-			mkdir "$appsdir/$dirname/src/templates"
-		fi
-		cp -f $sourcedir/templates/apps/$dirname.tpl "$appsdir/$dirname/src/templates/"
-	fi
-
-	# copy icon
-	#
-	if [ -f $sourcedir/images/icons/apps/$dirname.svg ]; then
-		cp -f $sourcedir/images/icons/apps/$dirname.svg "$appsdir/$dirname/images/icons/icon.svg"
-	fi
-
-	# copy images
-	#
-	if [ -d $sourcedir/images/info/apps/$dirname ]; then
-		cp -rf $sourcedir/images/info/apps/$dirname/* "$appsdir/$dirname/images/info"
-	fi
+	update_scripts
+	update_styles
+	update_templates
+	update_images
 }
 
-# check if we specify apps
-#
-if [ $# -lt 2 ] ; then
+function update_apps() {
+	appsdir=$1
 
 	# iterate over all apps
 	#
-	for appdir in $sourcedir/scripts/views/apps/*/; do
+	for appdir in $appsdir/*/; do
 
 		# remove path prefix
 		#
@@ -159,6 +164,42 @@ if [ $# -lt 2 ] ; then
 			update_app $dirname
 		fi
 	done
+}
+
+#
+# main
+#
+
+# check command line arguments
+#
+if [ $# -lt 1 ] ; then
+	echo "Usage: sh update-apps.sh SHAREDIGM_DIRECTORY [APP1 APP2 APP3...]"
+	exit 0
+fi
+
+# parse command line arguments
+#
+sourcedir=$1
+
+# confirm update
+#
+if [ $# -eq 1 ] ; then
+	echo "Would you like to update all apps from $sourcedir (Y/N)?"
+elif [ $# -eq 2 ] ; then
+	echo "Would you like to update $2 from $sourcedir (Y/N)?"
+else
+	echo "Would you like to update these $(($# - 1)) apps from $sourcedir (Y/N)?"
+fi
+read prompt
+if [ $prompt != 'y' ] && [ $prompt != 'Y' ]; then
+	echo "Quitting."
+	exit 0
+fi
+
+# check if we specify apps
+#
+if [ $# -lt 2 ] ; then
+	update_apps $sourcedir/scripts/views/apps
 else
 
 	# iterate over specified apps

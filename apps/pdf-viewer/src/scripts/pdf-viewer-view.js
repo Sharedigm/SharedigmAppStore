@@ -644,17 +644,21 @@ export default AppSplitView.extend(_.extend({}, Findable, ItemShareable, ItemInf
 	// text extraction methods
 	//
 
+	showTextFile: function(file) {
+		application.launch('text_editor', {
+			model: file
+		});
+	},
+
 	showText: function() {
 		this.fetchText({
 
 			// callbacks
 			//
 			success: function(text) {
-				application.launch('text_editor', {
-					model: new File({
-						contents: text
-					})
-				});
+				this.showTextFile(new File({
+					contents: text
+				}));
 			}
 		})
 	},

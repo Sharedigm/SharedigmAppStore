@@ -59,6 +59,12 @@ export default BaseView.extend({
 		};
 	},
 
+	showMap: function() {
+		application.launch('map_viewer', {
+			people: [this.model]
+		});
+	},
+
 	//
 	// dialog rendering methods
 	//
@@ -88,9 +94,7 @@ export default BaseView.extend({
 
 		// launch map viewer
 		//
-		application.launch('map_viewer', {
-			people: [this.model]
-		});
+		this.showMap();
 	},
 
 	onMouseDownOnlineBadge: function(event) {

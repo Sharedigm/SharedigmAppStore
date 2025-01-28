@@ -108,11 +108,15 @@ export default EditMenuView.extend({
 	//
 
 	getOrganizationView: function() {
-		return this.parent.app.getActiveView().getChildView('organization');
+		if (this.parent.app.hasActiveView()) {
+			return this.parent.app.getActiveView().getChildView('organization');
+		}
 	},
 
 	getContactsView: function() {
-		return this.parent.app.getActiveView().getChildView('info');
+		if (this.parent.app.hasActiveView()) {
+			return this.parent.app.getActiveView().getChildView('info');
+		}
 	},
 
 	getJob: function() {

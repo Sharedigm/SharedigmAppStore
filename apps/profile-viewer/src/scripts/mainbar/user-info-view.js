@@ -110,6 +110,12 @@ export default BaseView.extend({
 		}));
 	},
 
+	showPost: function(post) {
+		application.launch('post_viewer', {
+			model: post
+		});
+	},
+
 	//
 	// event handling methods
 	//
@@ -120,11 +126,6 @@ export default BaseView.extend({
 			// show connection's profile info
 			//
 			application.showUser(item.model);
-		} else if (item.model instanceof Post) {
-
-			// show post
-			//
-			application.showModel(item.model);
 		} else if (item.model instanceof Directory) {
 
 			// open directory
@@ -135,6 +136,11 @@ export default BaseView.extend({
 			// open file
 			//
 			application.openFile(item.model);
+		} else if (item.model instanceof Post) {
+
+			// show post
+			//
+			this.showPost(item.model);
 		}
 	},
 

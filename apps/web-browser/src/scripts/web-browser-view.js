@@ -485,14 +485,12 @@ export default AppSplitView.extend(_.extend({}, LinkShareable, {
 		this.$el.find('.address-bar input').focus();
 	},
 
-	//
-	// header bar rendering methods
-	//
-
-	getHeaderBarView: function() {
-		return new HeaderBarView();
+	showCode: function(file) {
+		application.launch('code_editor', {
+			model: file
+		});
 	},
-	
+
 	showSource: function() {
 		$.ajax({
 			url: config.servers.api + '/proxy/source?url=' + this.url,
@@ -501,14 +499,20 @@ export default AppSplitView.extend(_.extend({}, LinkShareable, {
 			// callbacks
 			//
 			success: (data) => {
-				application.launch('code_editor', {
-					model: new File({
-						name: 'index.html',
-						contents: data
-					})
-				});
+				this.showCode(new File({
+					name: 'index.html',
+					contents: data
+				}));
 			}
 		});
+	},
+
+	//
+	// header bar rendering methods
+	//
+
+	getHeaderBarView: function() {
+		return new HeaderBarView();
 	},
 
 	//

@@ -130,7 +130,9 @@ export default BaseView.extend(_.extend({}, Loadable, {
 	//
 
 	onSelect: function(item) {
-		application.showModel(item.model.get('post'));
+		application.launch('post_viewer', {
+			model: item.model.get('post')
+		});
 	},
 
 	onChangeSorting: function() {

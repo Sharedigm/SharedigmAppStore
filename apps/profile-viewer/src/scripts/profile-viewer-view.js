@@ -418,7 +418,9 @@ export default AppSplitView.extend(_.extend({}, ItemOpenable, ConnectionShareabl
 	},
 
 	openPost: function(post) {
-		application.showModel(post);
+		application.launch('post_viewer', {
+			model: post
+		});
 	},
 
 	//

@@ -122,7 +122,7 @@ export default AppSplitView.extend(_.extend({}, SelectableContainable, MultiSele
 		// open selected chats in chat viewer after delay
 		//
 		window.setTimeout(() => {
-			application.showCollection(new Chats(this.getSelectedModels()));
+			this.showSelectedChats();
 		}, delay);
 	},
 
@@ -217,11 +217,14 @@ export default AppSplitView.extend(_.extend({}, SelectableContainable, MultiSele
 		});
 	},
 
-	onShow: function() {
+	showChats: function(chats) {
+		application.launch('chat_viewer', {
+			collection: new Chats(chats)
+		});
+	},
 
-		// set focus
-		//
-		this.$el.find('.search-bar input').focus();
+	showSelectedChats: function() {
+		this.showChats(this.getSelectedModels());
 	},
 
 	//
@@ -369,5 +372,16 @@ export default AppSplitView.extend(_.extend({}, SelectableContainable, MultiSele
 		if (this.options.onopen) {
 			this.options.onopen(item);
 		}
+	},
+
+	//
+	// rendering event handling methods
+	//
+
+	onShow: function() {
+
+		// set focus
+		//
+		this.$el.find('.search-bar input').focus();
 	}
 }));

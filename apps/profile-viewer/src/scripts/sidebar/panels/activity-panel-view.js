@@ -73,15 +73,12 @@ export default SideBarPanelView.extend({
 		};
 	},
 
-	showDefaultTopic: function() {
-		import(
-			'../../../../../views/apps/topic-viewer/topic-viewer-view.js'
-		).then((TopicViewerView) => {
+	showConnections: function() {
+		application.launch('connection_manager');
+	},
 
-			// show default topic
-			//
-			application.showModel(TopicViewerView.default.default_topic);
-		});
+	showDefaultTopic: function() {
+		application.launch('topic_viewer');
 	},
 
 	//
@@ -89,7 +86,7 @@ export default SideBarPanelView.extend({
 	//
 
 	onClickNumConnections: function() {
-		application.launch('connection_manager');
+		this.showConnections();
 	},
 
 	onClickNumPosts: function() {

@@ -136,7 +136,7 @@ export default AppSplitView.extend(_.extend({}, SelectableContainable, MultiSele
 		// open selected projects in project viewer after delay
 		//
 		window.setTimeout(() => {
-			application.showCollection(new Projects(this.getSelectedModels()));
+			this.showSelectedProjects();
 		}, delay);
 	},
 
@@ -345,6 +345,16 @@ export default AppSplitView.extend(_.extend({}, SelectableContainable, MultiSele
 		// set focus
 		//
 		this.$el.find('.search-bar input').focus();
+	},
+
+	showProjects: function(projects) {
+		application.launch('project_viewer', {
+			collection: new Projects(projects)
+		});
+	},
+
+	showSelectedProjects: function() {
+		this.showProjects(this.getSelectedModels());
 	},
 
 	//

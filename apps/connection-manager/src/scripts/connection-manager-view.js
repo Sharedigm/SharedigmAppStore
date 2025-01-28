@@ -474,6 +474,17 @@ export default AppSplitView.extend(_.extend({}, SelectableContainable, MultiSele
 	},
 
 	//
+	// rendering methods
+	//
+
+	showChatMessage: function(chat, message) {
+		application.launch('chat_viewer', {
+			model: chat,
+			message: message
+		});
+	},
+
+	//
 	// sharing methods
 	//
 
@@ -496,12 +507,11 @@ export default AppSplitView.extend(_.extend({}, SelectableContainable, MultiSele
 				success: (collection) => {
 					let user = this.getSelectedModel();
 					let chat = collection.getChatByUser(user);
+					let message = config.apps.connection_manager.connection_message;
 
 					// show user's chat
 					//
-					application.showModel(chat, {
-						message: config.apps.file_browser.share_invitation_message
-					});
+					this.showChatMessage(chat, message);
 				}
 			});
 		});

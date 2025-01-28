@@ -52,7 +52,6 @@ export default InfoFormView.extend({
 	//
 	
 	onRender: function() {
-		let required = this.model.get('required');
 
 		// show child views
 		//
@@ -60,7 +59,7 @@ export default InfoFormView.extend({
 		this.showGeneralPane();
 		this.showSecurityPane();
 
-		if (!required) {
+		if (!this.model.isDefault()) {
 			this.showHistoryPane();
 			this.showMembersPane();
 		} else {
@@ -70,7 +69,7 @@ export default InfoFormView.extend({
 
 		// fetch topic members
 		//
-		if (application.isSignedIn() && !required) {
+		if (application.isSignedIn() && !this.model.isDefault()) {
 			this.model.fetchMembers({
 
 				// callbacks

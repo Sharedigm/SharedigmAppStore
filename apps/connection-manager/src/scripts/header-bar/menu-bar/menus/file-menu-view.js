@@ -146,9 +146,7 @@ export default FileMenuView.extend({
 	},
 
 	onClickShowOnMap: function() {
-		application.launch('map_viewer', {
-			people: this.parent.app.getSelectedGeolocatedModels()
-		});
+		this.parent.app.showSelectedGeolocatedModels();
 	},
 
 	onClickDeleteConnections: function() {
