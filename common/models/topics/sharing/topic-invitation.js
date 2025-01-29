@@ -28,14 +28,6 @@ export default Timestamped.extend({
 	urlRoot: config.servers.api + '/topics/invitations',
 
 	//
-	// getting methods
-	//
-
-	getClassName: function() {
-		return 'topic_invitation';
-	},
-
-	//
 	// accepting methods
 	//
 

@@ -34,13 +34,5 @@ export default BaseModel.extend({
 
 	is: function(page) {
 		return page && this.get('page_number') == page.get('page_number');
-	},
-
-	//
-	// getting methods
-	//
-
-	getClassName: function() {
-		return 'page';
 	}
 });

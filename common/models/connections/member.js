@@ -20,14 +20,6 @@ import Connection from '../../models/connections/connection.js';
 export default Connection.extend({
 
 	//
-	// getting methods
-	//
-
-	getClassName: function() {
-		return 'member';
-	},
-
-	//
 	// fetching methods
 	//
 	

@@ -1,10 +1,10 @@
 /******************************************************************************\
 |                                                                              |
-|                     connection-requests-list-item-view.js                    |
+|                     chat-invitation-notification-view.js                     |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
-|        This is a view for showing a single connection request list item.     |
+|        This is a view for displaying a type of notification.                 |
 |                                                                              |
 |        Author(s): Abe Megahed                                                |
 |                                                                              |
@@ -15,10 +15,11 @@
 |        Copyright (C) 2016-2024, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
+import Connection from '../../../../../models/connections/connection.js';
+import Chat from '../../../../../models/chats/chat.js';
 import NotificationsListItemView from '../../../../../views/apps/notification-center/mainbar/notifications/lists/notifications-list-item-view.js';
-import Expandable from '../../../../../views/behaviors/expanders/expandable.js';
 
-export default NotificationsListItemView.extend(_.extend({}, Expandable, {
+export default NotificationsListItemView.extend({
 
 	//
 	// attributes
@@ -30,7 +31,7 @@ export default NotificationsListItemView.extend(_.extend({}, Expandable, {
 			<div class="tile">
 				<a class="user">
 					<% if (thumbnail_url) { %>
-					<div class="thumbnail" style="background-image:url(<%= thumbnail_url %>); background-size:<%= background_size %>" >
+					<div class="thumbnail" style="background-image:url(<%= thumbnail_url %>)">
 						<img style="display:none" src="<%= thumbnail_url %>" onerror="this.classList.add('lost')" />
 						<i class="placeholder far fa-user"></i>
 					</div>
@@ -54,13 +55,15 @@ export default NotificationsListItemView.extend(_.extend({}, Expandable, {
 					</div>
 		
 					<div class="title">
-						<a class="user"><%= name %></a>
+						<a class="user">
+							<%= name %>
+						</a>
 					</div>
 				</div>
 		
 				<div class="fineprint">
-					<i class="fa fa-user-friends" style="margin-right:5px"></i>
-					Invited you to connect.
+					<i class="fa fa-comments"></i>
+					<span>Invited you to join a chat. </span>
 					<br />
 		
 					<a class="when">
@@ -84,7 +87,7 @@ export default NotificationsListItemView.extend(_.extend({}, Expandable, {
 		
 					<% if (message) { %>
 					<div class="form-group">
-						<label class="form-label"><i class="fa fa-comment"></i>Note</label>
+						<label class="form-label"><i class="fa fa-quote-left"></i>Note</label>
 						<p class="form-control-static"><%= message %></p>
 					</div>
 					<% } %>
@@ -110,9 +113,23 @@ export default NotificationsListItemView.extend(_.extend({}, Expandable, {
 	// getting methods
 	//
 
+	getSender: function() {
+		return this.get('chat_invitation').get('sender');
+	},
+
 	getThumbnailUrl: function() {
-		return this.get('user').getProfilePhotoUrl({
+		return this.get('chat_invitation').get('sender').getProfilePhotoUrl({
 			min_size: Math.floor(this.thumbnailSize * (window.devicePixelRatio || 1))
+		});
+	},
+
+	//
+	// rendering methods
+	//
+
+	showChat: function(chat) {
+		application.launch('chat_viewer', {
+			model: chat
 		});
 	},
 
@@ -120,24 +137,25 @@ export default NotificationsListItemView.extend(_.extend({}, Expandable, {
 	// accepting methods
 	//
 
-	acceptRequest: function() {
-		this.model.accept({
+	accept: function() {
+
+		// accept chat invitation
+		//
+		this.get('chat_invitation').accept({
 
 			// callbacks
 			//
-			success: () => {
+			success: (data) => {
 
-				// remove item from pending list
+				// dismiss notification
 				//
-				this.model.collection.remove(this.model);
+				this.dismiss();
 
-				// show notification
+				// show new chat
 				//
-				application.notify({
-					icon: '<i class="fa fa-user-friends"></i>',
-					title: 'Users Connected',
-					message: "You and " + this.model.get('user').get('full_name') + " are now connected."
-				});
+				this.showChat(new Chat(data.chat, {
+					parse: true
+				}));
 			},
 
 			error: (model, response) => {
@@ -145,31 +163,26 @@ export default NotificationsListItemView.extend(_.extend({}, Expandable, {
 				// show error message
 				//
 				application.error({
-					message: "Can not accept connection request.",
+					message: "Could not accept chat invitation.",
 					response: response
 				});
 			}
 		});
 	},
 
-	declineRequest: function() {
-		this.model.decline({
+	decline: function() {
+
+		// decline chat invitation
+		//
+		this.get('chat_invitation').decline({
 
 			// callbacks
 			//
 			success: () => {
 
-				// remove item from pending list
+				// dismiss notification
 				//
-				this.model.collection.remove(this.model);
-
-				// show notification
-				//
-				application.notify({
-					icon: '<i class="fa fa-user-friends"></i>',
-					title: 'Connection Declined',
-					message: "You declined " + this.model.get('user').get('full_name') + "'s connection request."
-				});
+				this.dismiss();
 			},
 
 			error: (model, response) => {
@@ -177,7 +190,7 @@ export default NotificationsListItemView.extend(_.extend({}, Expandable, {
 				// show error message
 				//
 				application.error({
-					message: "Can not decline connection request.",
+					message: "Could not decline chat invitation.",
 					response: response
 				});
 			}
@@ -190,28 +203,12 @@ export default NotificationsListItemView.extend(_.extend({}, Expandable, {
 
 	templateContext: function() {
 		return {
-			name: this.get('user').get('short_name'),
-			href: application.getUrl() + '#users/' + this.get('user').get('id'),
+			name: this.get('chat_invitation').get('sender').get('short_name'),
 			thumbnail_url: this.getThumbnailUrl(),
-			background_size: this.thumbnailSize + 'px',
+			thumbnail_size: this.thumbnailSize + 'px',
+			message: this.get('chat_invitation').get('message'),
 			when: this.model.when()
 		};
-	},
-
-	onRender: function() {
-
-		// collapse / expand
-		//
-		if (this.options.collapsed) {
-			this.collapse();
-		}
-	},
-
-	onAttach: function() {
-
-		// add tooltip triggers
-		//
-		this.addTooltips();		
 	},
 
 	//
@@ -220,9 +217,31 @@ export default NotificationsListItemView.extend(_.extend({}, Expandable, {
 
 	onClickUser: function() {
 
-		// show user's profile info
+		// find connection
 		//
-		application.showUser(this.get('user'));
+		new Connection({
+			id: this.model.get('chat_invitation').get('user').get('id')
+		}).fetch({
+
+			// callbacks
+			//
+			success: (model) => {
+
+				// show user's profile info
+				//
+				application.showUser(model);
+			},
+
+			error: (response) => {
+
+				// show error message
+				//
+				application.error({
+					message: "Connection not found.",
+					response: response
+				});
+			}
+		});
 	},
 
 	onClickExpander: function() {
@@ -230,18 +249,10 @@ export default NotificationsListItemView.extend(_.extend({}, Expandable, {
 	},
 	
 	onClickAccept: function() {
-		this.acceptRequest();
+		this.accept();
 	},
 
 	onClickDecline: function() {
-		this.declineRequest();
-	},
-
-	//
-	// cleanup methods
-	//
-
-	onBeforeDestroy: function() {
-		$('.tooltip').remove();
+		this.decline();
 	}
-}));
+});

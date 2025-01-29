@@ -82,10 +82,6 @@ export default Timestamped.extend({
 	// getting methods
 	//
 
-	getClassName: function() {
-		return 'chat';
-	},
-
 	getName: function(options) {
 
 		// set default options

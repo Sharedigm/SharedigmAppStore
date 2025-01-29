@@ -24,14 +24,6 @@ import Reply from '../../models/comments/reply.js';
 export default Timestamped.extend({
 
 	//
-	// getting methods
-	//
-
-	getClassName: function() {
-		return 'like';
-	},
-
-	//
 	// parsing (Backbone) methods
 	//
 

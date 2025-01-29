@@ -86,10 +86,6 @@ export default Timestamped.extend({
 	// getting methods
 	//
 
-	getClassName: function() {
-		return 'project';
-	},
-
 	getProjectThumbnailUrl: function(options) {
 		let url = this.url() + '/thumb';
 

@@ -80,10 +80,6 @@ export default Timestamped.extend({
 	// getting methods
 	//
 
-	getClassName: function() {
-		return 'post';
-	},
-
 	getMessage: function(options) {
 		let message = this.get('message');
 		if (options && options.max_words) {

@@ -26,14 +26,6 @@ export default Timestamped.extend({
 	urlRoot: config.servers.api + '/notifications',
 
 	//
-	// getting methods
-	//
-
-	getClassName: function() {
-		return 'notification';
-	},
-
-	//
 	// fetching methods
 	//
 

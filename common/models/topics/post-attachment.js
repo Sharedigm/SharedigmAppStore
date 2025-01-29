@@ -41,10 +41,6 @@ export default Timestamped.extend({
 	// getting methods
 	//
 
-	getClassName: function() {
-		return 'post_attachment';
-	},
-
 	getData: function(options) {
 		return _.extend({
 			'path': this.get('filename'),

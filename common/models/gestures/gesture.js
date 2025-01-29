@@ -39,10 +39,6 @@ export default Timestamped.extend({
 	// getting methods
 	//
 
-	getClassName: function() {
-		return 'gesture';
-	},
-
 	getSound: function() {
 		switch (this.get('kind')) {
 			case 'poke':

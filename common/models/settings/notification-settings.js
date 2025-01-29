@@ -24,7 +24,15 @@ export default UserSettings.extend({
 	//
 
 	category: 'notifications',
-	defaults: [],
+	defaults: {
+		connect_invitations: [],
+		share_invitations: [],
+		topic_invitations: [],
+		chat_invitations: [],
+		comments: [],
+		replies: [],
+		likes: []
+	},
 
 	//
 	// constructor

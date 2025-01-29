@@ -21,14 +21,6 @@ import User from '../../models/users/user.js';
 export default Timestamped.extend({
 
 	//
-	// getting methods
-	//
-
-	getClassName: function() {
-		return 'connection_request';
-	},
-
-	//
 	// ajax attributes
 	//
 

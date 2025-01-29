@@ -53,10 +53,6 @@ export default Timestamped.extend({
 	// getting methods
 	//
 
-	getClassName: function() {
-		return 'task';
-	},
-
 	getImage: function() {
 		switch (this.get('kind')) {
 			case 'bug':

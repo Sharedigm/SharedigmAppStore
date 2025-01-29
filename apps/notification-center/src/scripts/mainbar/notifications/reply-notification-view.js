@@ -1,10 +1,10 @@
 /******************************************************************************\
 |                                                                              |
-|                     connection-requests-list-item-view.js                    |
+|                          reply-notification-view.js                          |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
-|        This is a view for showing a single connection request list item.     |
+|        This is a view for displaying a type of notification.                 |
 |                                                                              |
 |        Author(s): Abe Megahed                                                |
 |                                                                              |
@@ -15,10 +15,11 @@
 |        Copyright (C) 2016-2024, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
+import Connection from '../../../../../models/connections/connection.js';
+import Post from '../../../../../models/topics/post.js';
 import NotificationsListItemView from '../../../../../views/apps/notification-center/mainbar/notifications/lists/notifications-list-item-view.js';
-import Expandable from '../../../../../views/behaviors/expanders/expandable.js';
 
-export default NotificationsListItemView.extend(_.extend({}, Expandable, {
+export default NotificationsListItemView.extend({
 
 	//
 	// attributes
@@ -30,7 +31,7 @@ export default NotificationsListItemView.extend(_.extend({}, Expandable, {
 			<div class="tile">
 				<a class="user">
 					<% if (thumbnail_url) { %>
-					<div class="thumbnail" style="background-image:url(<%= thumbnail_url %>); background-size:<%= background_size %>" >
+					<div class="thumbnail" style="background-image:url(<%= thumbnail_url %>)">
 						<img style="display:none" src="<%= thumbnail_url %>" onerror="this.classList.add('lost')" />
 						<i class="placeholder far fa-user"></i>
 					</div>
@@ -45,22 +46,25 @@ export default NotificationsListItemView.extend(_.extend({}, Expandable, {
 			<div class="info">
 				<div class="heading">
 					<div class="buttons">
-						<button type="button" class="accept success btn btn-sm" data-toggle="tooltip" title="Accept" data-placement="bottom">
-							<i class="fa fa-plus"></i>
-						</button>
-						<button type="button" class="decline warning btn btn-sm" data-toggle="tooltip" title="Decline" data-placement="bottom">
-							<i class="fa fa-minus"></i>
+						<button type="button" class="dismiss warning btn btn-sm" data-toggle="tooltip" title="Dismiss" data-placement="bottom">
+							<i class="fa fa-xmark"></i>
 						</button>
 					</div>
 		
 					<div class="title">
-						<a class="user"><%= name %></a>
+						<a class="user">
+							<%= name %>
+						</a>
 					</div>
 				</div>
 		
 				<div class="fineprint">
-					<i class="fa fa-user-friends" style="margin-right:5px"></i>
-					Invited you to connect.
+					<i class="fa fa-reply"></i>
+					<% if (reply.get('item_type').contains('Comment')) { %>
+					<span>Replied to your <a href="<%= href %>" class="reply">comment</a>.</span>
+					<% } else if (reply.get('item_type').contains('Reply')) { %>
+					<span>Replied to your <a href="<%= href %>" class="reply">reply</a>.</span>
+					<% } %>
 					<br />
 		
 					<a class="when">
@@ -84,7 +88,7 @@ export default NotificationsListItemView.extend(_.extend({}, Expandable, {
 		
 					<% if (message) { %>
 					<div class="form-group">
-						<label class="form-label"><i class="fa fa-comment"></i>Note</label>
+						<label class="form-label"><i class="fa fa-quote-left"></i>Reply</label>
 						<p class="form-control-static"><%= message %></p>
 					</div>
 					<% } %>
@@ -99,88 +103,28 @@ export default NotificationsListItemView.extend(_.extend({}, Expandable, {
 	`),
 
 	events: {
+		'click': 'onClick',
 		'click .user': 'onClickUser',
 		'click .when': 'onClickWhen',
 		'click .expander': 'onClickExpander',
-		'click .accept': 'onClickAccept',
-		'click .decline': 'onClickDecline'
+		'click .dismiss': 'onClickDismiss'
 	},
+
+	// notification attributes
+	//
+	clickable: true,
 
 	//
 	// getting methods
 	//
 
+	getUrl: function() {
+		return '#posts/' + this.get('reply').get('post_id');
+	},
+
 	getThumbnailUrl: function() {
-		return this.get('user').getProfilePhotoUrl({
+		return this.get('reply').get('user').getProfilePhotoUrl({
 			min_size: Math.floor(this.thumbnailSize * (window.devicePixelRatio || 1))
-		});
-	},
-
-	//
-	// accepting methods
-	//
-
-	acceptRequest: function() {
-		this.model.accept({
-
-			// callbacks
-			//
-			success: () => {
-
-				// remove item from pending list
-				//
-				this.model.collection.remove(this.model);
-
-				// show notification
-				//
-				application.notify({
-					icon: '<i class="fa fa-user-friends"></i>',
-					title: 'Users Connected',
-					message: "You and " + this.model.get('user').get('full_name') + " are now connected."
-				});
-			},
-
-			error: (model, response) => {
-
-				// show error message
-				//
-				application.error({
-					message: "Can not accept connection request.",
-					response: response
-				});
-			}
-		});
-	},
-
-	declineRequest: function() {
-		this.model.decline({
-
-			// callbacks
-			//
-			success: () => {
-
-				// remove item from pending list
-				//
-				this.model.collection.remove(this.model);
-
-				// show notification
-				//
-				application.notify({
-					icon: '<i class="fa fa-user-friends"></i>',
-					title: 'Connection Declined',
-					message: "You declined " + this.model.get('user').get('full_name') + "'s connection request."
-				});
-			},
-
-			error: (model, response) => {
-
-				// show error message
-				//
-				application.error({
-					message: "Can not decline connection request.",
-					response: response
-				});
-			}
 		});
 	},
 
@@ -190,58 +134,112 @@ export default NotificationsListItemView.extend(_.extend({}, Expandable, {
 
 	templateContext: function() {
 		return {
-			name: this.get('user').get('short_name'),
-			href: application.getUrl() + '#users/' + this.get('user').get('id'),
+			name: this.get('reply').get('user').get('short_name'),
+			href: this.getUrl(),
 			thumbnail_url: this.getThumbnailUrl(),
-			background_size: this.thumbnailSize + 'px',
+			thumbnail_size: this.thumbnailSize + 'px',
+			message: this.get('reply').get('message'),
 			when: this.model.when()
 		};
 	},
 
-	onRender: function() {
-
-		// collapse / expand
-		//
-		if (this.options.collapsed) {
-			this.collapse();
-		}
+	showRepliedPost: function(reply, post) {
+		application.launch('post_viewer', {
+			model: post,
+			selected: reply
+		});
 	},
 
-	onAttach: function() {
+	showPost: function() {
+		let reply = this.get('reply');
 
-		// add tooltip triggers
+		// show post
 		//
-		this.addTooltips();		
+		if (reply.has('post_id') && reply.get('post_id')) {
+			new Post({
+				id: reply.get('post_id')
+			}).fetch({
+
+				// callbacks
+				//
+				success: (post) => {
+
+					// show reply's post
+					//
+					this.showRepliedPost(reply, post);
+				}
+			});
+		} else {
+
+			// show alert message
+			//
+			application.alert({
+				message: "Post not found."
+			});
+		}
 	},
 
 	//
 	// mouse event handling methods
 	//
 
+	onClick: function(event) {
+
+		// show post that reply belongs to
+		//
+		this.showPost();
+
+		// prevent default click handling
+		//
+		event.preventDefault();
+	},
+
 	onClickUser: function() {
 
-		// show user's profile info
+		// find connection
 		//
-		application.showUser(this.get('user'));
+		new Connection({
+			id: this.get('reply').get('user').get('id')
+		}).fetch({
+
+			// callbacks
+			//
+			success: (model) => {
+
+				// show connection's profile info
+				//
+				application.showUser(model);
+			},
+
+			error: (response) => {
+
+				// show error message
+				//
+				application.error({
+					message: "Connection not found.",
+					response: response
+				});
+			}
+		});
+
+		// done handling event
+		//
+		return false;
 	},
 
 	onClickExpander: function() {
 		this.toggleCollapse();
-	},
-	
-	onClickAccept: function() {
-		this.acceptRequest();
-	},
 
-	onClickDecline: function() {
-		this.declineRequest();
+		// done handling event
+		//
+		return false;
 	},
 
-	//
-	// cleanup methods
-	//
+	onClickDismiss: function() {
+		this.dismiss();
 
-	onBeforeDestroy: function() {
-		$('.tooltip').remove();
+		// done handling event
+		//
+		return false;
 	}
-}));
+});
