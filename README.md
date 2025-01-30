@@ -64,6 +64,14 @@ The system apps allow you to use the core functionality of the system or to conf
 	<p>The Terminal app lets you interact via a simple command line.</p>
 </p>
 
+<p>
+	<a href="apps/token-manager">
+		<img src="apps/token-manager/images/icons/logo.svg" width="80">
+		<b>Token Manager</b>
+	</a>
+	<p>The Token Manager app lets you manage your AI image generation tokens. </p>
+</p>
+
 ### Social Apps
 
 Social apps are provided to allow you to connect with friends or colleages and to share messages, files, folders, photos, and music.
@@ -150,6 +158,14 @@ Multimedia apps allow you to enjoy image, video, or audio media files.
 		<b>Audio Player</b>
 	</a>
 	<p>The Audio Player app is used to play music and audio files (audiobooks, podcasts etc). </p>
+</p>
+
+<p>
+	<a href="apps/image-generator">
+		<img src="apps/image-generator/images/icons/logo.svg" width="80">
+		<b>Image Generator</b>
+	</a>
+	<p>The Image Generator app lets you explore AI image generation. </p>
 </p>
 
 <p>

@@ -75,12 +75,14 @@ export default AppView.extend({
 
 		// create theme files
 		//
-		let themes = config.apps.theme_picker.themes;
 		let files = [];
-		for (let i = 0; i < themes.length; i++) {
-			files.push(new File({
-				path: themes[i]
-			}));
+		let themes = config.apps.theme_picker.themes;
+		if (themes) {
+			for (let i = 0; i < themes.length; i++) {
+				files.push(new File({
+					path: themes[i]
+				}));
+			}
 		}
 
 		// set attributes
@@ -91,7 +93,7 @@ export default AppView.extend({
 
 		// set window size
 		//
-		if (themes.length <= 6) {
+		if (themes && themes.length <= 6) {
 			if (config.apps.theme_manager.hidden) {
 				this.size = [undefined, 300];
 			} else {

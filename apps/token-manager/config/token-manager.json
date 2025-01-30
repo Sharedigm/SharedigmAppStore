@@ -1,0 +1,13 @@
+{
+	"name": "Tokens",
+	"icon": "fa fa-coins",
+	"category": "system",
+	"platform": "all",
+	"access": "user",
+	"disabled": false,
+	"hidden": false,
+	"args": false,
+	"color": "grey",
+	"token_message": "If you run out of tokens, you may request additional tokens every 24 hours. ",
+	"api_key_message": "If you'd like more images than the free tokens allow, then you can supply your own API key and create as many images as you'd like. "
+}

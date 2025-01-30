@@ -1,0 +1,51 @@
+{
+	"home_directory": "",
+	"background_color": null,
+	"zoom_duration": 100,
+	"rotate_duration": 500,
+	"slide_duration": 5,
+	"slide_looping": true,
+	"window_size": "medium",
+	"maximized": true,
+	"full_screen": false,
+	"toolbars": [
+		"mouse_mode",
+		"zoom_mode",
+		"generate",
+		"image"
+	],
+	"show_prompt": true,
+	"save_prompt": true,
+	"show_sidebar": true,
+	"sidebar_size": {
+		"phone": 0,
+		"tablet": 35,
+		"desktop": 35
+	},
+	"sidebar_min_size": {
+		"phone": 0,
+		"tablet": 0,
+		"desktop": 0
+	},
+	"sidebar_panels": [
+		"favorites",
+		"images",
+		"parameters"
+	],
+	"sidebar_view_kind": {
+		"phone": "tiles",
+		"tablet": "tiles",
+		"desktop": "tiles"
+	},
+	"sidebar_tile_size": {
+		"phone": "small",
+		"tablet": "medium",
+		"desktop": "large"
+	},
+	"show_exif_info": false,
+	"info_bar_size": {
+		"phone": 50,
+		"tablet": 25,
+		"desktop": 25
+	}
+}
