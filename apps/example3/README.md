@@ -7,7 +7,7 @@
 The [Example3](https://www.sharedigm.com/#apps/example3) is a simple example of an accessory app.
 
 <p align="center" style="text-align:center">
-	<img src="images/info/example3.png" width="720" style="border-radius:6px" />
+	<img src="images/info/example3.png" width="300" style="border-radius:6px" />
 	<div align="center">Example3</div>
 </p>
 
