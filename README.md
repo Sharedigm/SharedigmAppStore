@@ -348,6 +348,34 @@ Utility apps add basic additional functionality to make life just a little bit e
 	<p>The Timer app lets you time events, functioning as a simple stopwatch. </p>
 </p>
 
+### Example Apps
+
+Examples apps are provided for developers as a set of simple templates containing the core structure of apps to use as a base for the development of new apps.
+
+<p>
+	<a href="apps/example1">
+		<img src="apps/example1/images/icons/logo.svg" width="80">
+		<b>Example1</b>
+	</a>
+	<p>The Example1 app is a simple example of a single-column app. </p>
+</p>
+
+<p>
+	<a href="apps/example2">
+		<img src="apps/example2/images/icons/logo.svg" width="80">
+		<b>Example2</b>
+	</a>
+	<p>The Example2 app is a simple example of a two-column app with a mainbar and a sidebar. </p>
+</p>
+
+<p>
+	<a href="apps/example3">
+		<img src="apps/example3/images/icons/logo.svg" width="80">
+		<b>Example3</b>
+	</a>
+	<p>The Example3 app is a simple example of an accessory app. </p>
+</p>
+
 ## Requirements
 
 ### 1. Sharedigm OS

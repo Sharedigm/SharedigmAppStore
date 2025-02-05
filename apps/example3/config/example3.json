@@ -1,0 +1,11 @@
+{
+	"name": "Example3",
+	"icon": "fa fa-rocket",
+	"category": "system",
+	"platform": "all",
+	"access": "all",
+	"disabled": false,
+	"hidden": false,
+	"args": false,
+	"color": "cyan"
+}

@@ -68,6 +68,18 @@ function update_styles {
 	fi
 }
 
+function update_resources {
+
+	# copy resources
+	#
+	if [ -f $sourcedir/styles/apps/_$dirname.scss ]; then
+		if [ ! -d $appsdir/$dirname/src/resources ]; then
+			mkdir "$appsdir/$dirname/src/resources"
+		fi
+		cp -f $sourcedir/resources/apps/_$dirname.scss "$appsdir/$dirname/src/resources/"
+	fi
+}
+
 function update_templates {
 
 	# copy templates
@@ -139,6 +151,7 @@ function update_app {
 	#
 	update_scripts
 	update_styles
+	update_resources
 	update_templates
 	update_images
 }
