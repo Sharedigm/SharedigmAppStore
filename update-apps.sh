@@ -72,11 +72,9 @@ function update_resources {
 
 	# copy resources
 	#
-	if [ -f $sourcedir/styles/apps/_$dirname.scss ]; then
-		if [ ! -d $appsdir/$dirname/src/resources ]; then
-			mkdir "$appsdir/$dirname/src/resources"
-		fi
-		cp -f $sourcedir/resources/apps/_$dirname.scss "$appsdir/$dirname/src/resources/"
+	if [ -d $sourcedir/resources/$dirname ]; then
+		rm -rf $appsdir/$dirname/src/resources
+		cp -rf $sourcedir/resources/$dirname $appsdir/$dirname/src/resources
 	fi
 }
 
@@ -128,12 +126,12 @@ function update_app {
 		
 		# copy app template directory
 		#
-		cp -rf "$appsdir/app" "$appsdir/$dirname"
+		cp -rf "$appsdir/template" "$appsdir/$dirname"
 	else
 
 		# copy installer / uninstaller scripts
 		#
-		cp -f "$appsdir/app/"*.sh "$appsdir/$dirname/"
+		cp -f "$appsdir/template/"*.sh "$appsdir/$dirname/"
 	fi
 
 	# create src directory
