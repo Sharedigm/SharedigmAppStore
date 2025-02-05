@@ -15,24 +15,31 @@
 #        Copyright (C) 2016-2024, Megahed Labs LLC, www.sharedigm.com          #
 #******************************************************************************#
 
-# models
+# app dependencis
 #
 models/chats
 models/comments
 models/topics
 models/notifications
-
-# collections
-#
 collections/chats
 collections/comments
 collections/topics
 collections/notifications
-
-# apps
-#
 apps/chat-browser
 apps/chat-viewer
 apps/topic-browser
 apps/topic-viewer
 apps/post-viewer
+styles/comments
+styles/messages
+
+# services dependencies
+#
+Models/Chats
+Models/Comments
+Models/Topics
+Collections/Chats
+Collections/Comments
+Collections/Notifications
+Collections/Topics
+routes/comments

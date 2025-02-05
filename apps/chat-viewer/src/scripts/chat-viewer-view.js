@@ -586,12 +586,24 @@ export default AppSplitView.extend(_.extend({}, MultiDoc, ContainableSelectable,
 		//
 		this.hideMessage();
 
-		// open first chat
+		// open a chat
 		//
 		if (this.collection.isEmpty() && collection && collection.length > 0) {
+
+			// get selected chat
+			//
+			if (this.options.user) {
+				this.model = collection.getChatByUser(this.options.user)
+			}
+
+			// get first chat
+			//
 			if (!this.model) {
 				this.model = collection.at(0);
 			}
+
+			// load chat
+			//
 			this.loadModel(this.model);
 		}
 

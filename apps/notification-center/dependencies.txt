@@ -15,24 +15,17 @@
 #        Copyright (C) 2016-2024, Megahed Labs LLC, www.sharedigm.com          #
 #******************************************************************************#
 
-# models
+# script dependencies
 #
-
 models/chats
 models/comments
 models/connections
 models/gestures
 models/notifications
 models/topics
-
-# collections
-#
 collections/chats
 collections/comments
 collections/connections
 collections/notifications
 collections/topics
-
-# apps
-#
 apps/connection-manager

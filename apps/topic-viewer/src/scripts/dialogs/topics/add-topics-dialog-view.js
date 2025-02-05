@@ -59,7 +59,7 @@ export default DialogView.extend({
 	`),
 
 	regions: {
-		body: {
+		topic_browser: {
 			el: '.modal-body',
 			replaceElement: true
 		},
@@ -174,7 +174,7 @@ export default DialogView.extend({
 	},
 
 	showTopicBrowser: function() {
-		this.showChildView('body', new TopicBrowserView({
+		this.showAppView('topic_browser', new TopicBrowserView({
 			model: this.model,
 
 			// options
@@ -216,7 +216,7 @@ export default DialogView.extend({
 
 		// update buttons
 		//
-		this.setDisabled(!this.getChildView('body').hasSelected());
+		this.setDisabled(!this.getChildView('topic_browser').hasSelected());
 	},
 
 	//
@@ -255,7 +255,7 @@ export default DialogView.extend({
 
 		// add selected topics
 		//
-		this.addTopics(this.getChildView('body').getSelectedModels());
+		this.addTopics(this.getChildView('topic_browser').getSelectedModels());
 	},
 
 	//
@@ -263,6 +263,6 @@ export default DialogView.extend({
 	//
 
 	onKeyDown: function(event) {
-		this.getChildView('body').onKeyDown(event);
+		this.getChildView('topic_browser').onKeyDown(event);
 	}
 });

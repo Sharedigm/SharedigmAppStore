@@ -15,6 +15,6 @@
 #        Copyright (C) 2016-2024, Megahed Labs LLC, www.sharedigm.com          #
 #******************************************************************************#
 
-# models
+# script dependencies
 #
 models/pages

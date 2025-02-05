@@ -15,15 +15,13 @@
 #        Copyright (C) 2016-2024, Megahed Labs LLC, www.sharedigm.com          #
 #******************************************************************************#
 
-# models
+# script dependencies
 #
 models/connections
 models/gestures
-
-# collections
-#
 collections/connections
-
-# apps
-#
 apps/profile-browser
+
+# services dependencies
+#
+Collections/Notifications

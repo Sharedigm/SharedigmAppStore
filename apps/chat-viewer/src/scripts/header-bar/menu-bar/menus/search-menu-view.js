@@ -23,23 +23,6 @@ export default SearchMenuView.extend({
 	// attributes
 	//
 
-	items: [
-		{
-			"class": "search-by-message",
-			"group": "search-by",
-			"icon": "fa fa-quote-left",
-			"name": "By Message",
-			"select": true
-		},
-		{
-			"class": "search-by-date",
-			"group": "search-by",
-			"icon": "fa fa-calendar-alt",
-			"name": "By Date",
-			"select": true
-		}
-	],
-
 	events: {
 		'click .search-by > a': 'onClickSearchBy'
 	},

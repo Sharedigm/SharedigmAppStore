@@ -15,17 +15,11 @@
 #        Copyright (C) 2016-2024, Megahed Labs LLC, www.sharedigm.com          #
 #******************************************************************************#
 
-# models
+# script dependencies
 #
 models/connections
 models/weather
-
-# collections
-#
 collections/connections
 collections/weather
-
-# apps
-#
 apps/connection-manager
 apps/profile-browser

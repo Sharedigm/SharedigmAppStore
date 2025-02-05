@@ -238,7 +238,7 @@ export default DialogView.extend({
 	},
 
 	showConnectionManager: function() {
-		this.showChildView('connection_manager', new ConnectionManagerView({
+		this.showAppView('connection_manager', new ConnectionManagerView({
 
 			// options
 			//

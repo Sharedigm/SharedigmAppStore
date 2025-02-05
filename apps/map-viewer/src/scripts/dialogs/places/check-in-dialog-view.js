@@ -167,7 +167,7 @@ export default DialogView.extend({
 	},
 
 	showMapViewer: function() {
-		this.showChildView('map_viewer', new MapViewerView({
+		this.showAppView('map_viewer', new MapViewerView({
 
 			// app options
 			//

@@ -23,19 +23,6 @@ export default ShareMenuView.extend({
 	// attributes
 	//
 
-	items: [
-		{
-			"class": "share-chat",
-			"icon": "fa fa-comments",
-			"name": "Chat"
-		},
-		{
-			"class": "share-location",
-			"icon": "fa fa fa-map-marker-alt",
-			"name": "Location"
-		}
-	],
-
 	events: {
 
 		// share chat
@@ -66,7 +53,8 @@ export default ShareMenuView.extend({
 	//
 
 	getItems: function() {
-		return this.items.clone().concat(this.getFileItems());
+		let items = ShareMenuView.prototype.getItems.call(this);
+		return items.concat(this.getFileItems());
 	},
 
 	//

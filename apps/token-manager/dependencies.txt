@@ -15,10 +15,15 @@
 #        Copyright (C) 2016-2024, Megahed Labs LLC, www.sharedigm.com          #
 #******************************************************************************#
 
-# models
+# script dependencies
 #
 models/ai
-
-# collections
-#
 collections/ai
+
+# services dependencies
+#
+Models/AI
+Models/Utilities
+Controllers/AI
+Utilities/AI
+routes/ai

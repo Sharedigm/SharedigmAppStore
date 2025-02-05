@@ -2,24 +2,23 @@
 	<img src="images/icons/logo.svg" width="200">
 </p>
 
-# Example3
+# Terminal
 
-The [Example3](https://www.sharedigm.com/#apps/example3) app is a simple example of an accessory app.
+The [Terminal](https://www.sharedigm.com/#apps/terminal) app lets you interact via a simple command line.
 
 <p align="center" style="text-align:center">
-	<img src="images/info/example3.png" width="720" style="border-radius:6px" />
-	<div align="center">Example3</div>
+	<img src="images/info/terminal.png" width="720" style="border-radius:6px" />
+	<div align="center">Terminal</div>
 </p>
 
 ## Features
 
-- No menu bar.
-- Single column layout.
-- Fixed size window.
+- Execute simple shell commands.
+- Perform file system manipulations.
 
 ## Benefits
 
-- Create your own accessory apps from this example.
+- Lets you interact with your files using the command line.
 
 ## Requirements
 

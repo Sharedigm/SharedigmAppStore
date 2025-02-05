@@ -299,7 +299,7 @@ export default AppSplitView.extend(_.extend({}, ItemOpenable, ConnectionShareabl
 	},
 
 	shareMessage: function() {
-		application.launch('chat-viewer', {
+		application.launch('chat_viewer', {
 			user: this.model
 		});
 	},

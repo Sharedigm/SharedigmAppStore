@@ -58,7 +58,7 @@ export default DialogView.extend({
 	`),
 
 	regions: {
-		body: {
+		chat_browser: {
 			el: '.modal-body',
 			replaceElement: true
 		}
@@ -115,7 +115,7 @@ export default DialogView.extend({
 	},
 
 	showChatBrowser: function() {
-		this.showChildView('body', new ChatBrowserView({
+		this.showAppView('chat_browser', new ChatBrowserView({
 
 			// options
 			//
@@ -142,7 +142,7 @@ export default DialogView.extend({
 		// update buttons
 		//
 		this.$el.find('.modal-footer .open').prop('disabled', 
-			!this.getChildView('body').hasSelected());
+			!this.getChildView('chat_browser').hasSelected());
 	},
 
 	//
@@ -150,7 +150,7 @@ export default DialogView.extend({
 	//
 
 	onClickOpenButton: function() {
-		let selected = this.getChildView('body').getSelectedModels();
+		let selected = this.getChildView('chat_browser').getSelectedModels();
 
 		// open selected item
 		//
@@ -183,6 +183,6 @@ export default DialogView.extend({
 	//
 
 	onKeyDown: function(event) {
-		this.getChildView('body').onKeyDown(event);
+		this.getChildView('chat_browser').onKeyDown(event);
 	}
 });

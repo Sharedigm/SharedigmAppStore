@@ -12,7 +12,7 @@
 #        'LICENSE.md', which is part of this source code distribution.         #
 #                                                                              #
 #******************************************************************************#
-#        Copyright (C) 2016-2024, Megahed Labs LLC, www.sharedigm.com          #
+#        Copyright (C) 2016 - 2025, Megahed Labs LLC, www.sharedigm.com        #
 #******************************************************************************#
 
 # the app to uninstall
@@ -28,6 +28,10 @@ function println {
 		echo $1
 	fi
 }
+
+#******************************************************************************#
+#                       client uninstallation functions                        #
+#******************************************************************************#
 
 function uninstall_configs {
 	println "Uninstalling configs."
@@ -75,6 +79,14 @@ function uninstall_styles {
 	fi
 }
 
+function uninstall_resources {
+	println "Uninstalling resources."
+	resources=$target/resources/$dirname
+	if [ -d $resources ]; then
+		rm -rf $resources
+	fi
+}
+
 function uninstall_templates {
 	println "Uninstalling templates."
 
@@ -108,6 +120,10 @@ if [ "$1" == "" ] || [ $# -gt 2 ]; then
 	exit 0
 fi
 
+#******************************************************************************#
+#                                     main                                     #
+#******************************************************************************#
+
 # parse command line arguments
 #
 target=$1
@@ -140,6 +156,7 @@ dirname=${appname//_/-}
 uninstall_configs
 uninstall_scripts
 uninstall_styles
+uninstall_resources
 uninstall_templates
 uninstall_images
 

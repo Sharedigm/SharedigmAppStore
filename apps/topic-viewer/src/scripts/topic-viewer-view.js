@@ -266,6 +266,23 @@ export default AppSplitView.extend(_.extend({}, MultiDoc, ContainableSelectable,
 
 	loadModel: function(model, options) {
 		this.addModel(model, options);
+
+		// set options
+		//
+		if (options && (options.message || options.items)) {
+			let activeView = this.getActiveView();
+			if (activeView) {
+				let formView = activeView.getChildView('form');
+				if (formView) {
+					if (options.message) {
+						formView.setValue('message', options.message);
+					}
+					if (options.items) {
+						formView.addAttachments(options.items);
+					}
+				}
+			}
+		}
 	},
 
 	//
@@ -411,24 +428,7 @@ export default AppSplitView.extend(_.extend({}, MultiDoc, ContainableSelectable,
 	//
 
 	openTopic: function(topic, options) {
-		this.openModel(topic);
-
-		// set options
-		//
-		if (options && (options.message || options.items)) {
-			let activeView = this.getActiveView();
-			if (activeView) {
-				let formView = activeView.getChildView('form');
-				if (formView) {
-					if (options.message) {
-						formView.setValue('message', options.message);
-					}
-					if (options.items) {
-						formView.addAttachments(options.items);
-					}
-				}
-			}
-		}
+		this.openModel(topic, options);
 	},
 
 	openTopics: function(topics, options) {

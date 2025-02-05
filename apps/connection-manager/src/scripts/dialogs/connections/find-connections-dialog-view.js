@@ -61,7 +61,7 @@ export default DialogView.extend({
 	`),
 
 	regions: {
-		body: {
+		profile_browser: {
 			el: '.modal-body',
 			replaceElement: true
 		},
@@ -124,7 +124,7 @@ export default DialogView.extend({
 	},
 
 	showProfileBrowser: function() {
-		this.showChildView('body', new ProfileBrowserView({
+		this.showAppView('profile_browser', new ProfileBrowserView({
 			model: this.model,
 
 			// options
@@ -165,7 +165,7 @@ export default DialogView.extend({
 		// update buttons
 		//
 		this.$el.find('.modal-footer .connect').prop('disabled', 
-			!this.getChildView('body').hasSelected());
+			!this.getChildView('profile_browser').hasSelected());
 	},
 
 	//
@@ -191,7 +191,7 @@ export default DialogView.extend({
 	//
 
 	onClickConnect: function() {
-		let selected = this.getChildView('body').getSelectedModels();
+		let selected = this.getChildView('profile_browser').getSelectedModels();
 
 		// open selected item
 		//
@@ -230,6 +230,6 @@ export default DialogView.extend({
 	//
 
 	onKeyDown: function(event) {
-		this.getChildView('body').onKeyDown(event);
+		this.getChildView('profile_browser').onKeyDown(event);
 	}
 });

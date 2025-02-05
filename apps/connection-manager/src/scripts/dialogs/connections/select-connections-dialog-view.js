@@ -58,7 +58,7 @@ export default DialogView.extend({
 	`),
 
 	regions: {
-		body: {
+		connection_manager: {
 			el: '.modal-body',
 			replaceElement: true
 		}
@@ -80,8 +80,8 @@ export default DialogView.extend({
 	//
 
 	hasSelected: function() {
-		if (this.hasChildView('body')) {
-			return this.getChildView('body').getChildView('content').hasSelected();
+		if (this.hasChildView('connection_manager')) {
+			return this.getChildView('connection_manager').getChildView('content').hasSelected();
 		}
 	},
 
@@ -90,11 +90,11 @@ export default DialogView.extend({
 	//
 
 	getSelected: function() {
-		return this.getChildView('body').getChildView('content').getSelected();
+		return this.getChildView('connection_manager').getChildView('content').getSelected();
 	},
 
 	getSelectedModels: function() {
-		return this.getChildView('body').getChildView('content').getSelectedModels();
+		return this.getChildView('connection_manager').getChildView('content').getSelectedModels();
 	},
 
 	//
@@ -125,8 +125,8 @@ export default DialogView.extend({
 
 			// update file browser view
 			//
-			this.getChildView('body').model = directory;
-			this.getChildView('body').render();
+			this.getChildView('connection_manager').model = directory;
+			this.getChildView('connection_manager').render();
 		}
 	},
 
@@ -162,7 +162,7 @@ export default DialogView.extend({
 	},
 
 	showConnectionManager: function() {
-		this.showChildView('body', new ConnectionManagerView({
+		this.showAppView('connection_manager', new ConnectionManagerView({
 			model: this.model,
 
 			// options
@@ -225,8 +225,8 @@ export default DialogView.extend({
 
 		// check menu keyboard shortcuts
 		//
-		if (this.hasChildView('body')) {
-			this.getChildView('body').onKeyDown(event);
+		if (this.hasChildView('connection_manager')) {
+			this.getChildView('connection_manager').onKeyDown(event);
 		}
 	}
 });

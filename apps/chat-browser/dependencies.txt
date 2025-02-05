@@ -15,12 +15,15 @@
 #        Copyright (C) 2016-2024, Megahed Labs LLC, www.sharedigm.com          #
 #******************************************************************************#
 
-# models
+# script dependencies
 #
 models/chats
 models/connections
-
-# collections
-#
 collections/chats
 collections/connections
+
+# services dependencies
+#
+Models/Chats
+Collections/Chats
+routes/chats

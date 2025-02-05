@@ -15,21 +15,15 @@
 #        Copyright (C) 2016-2024, Megahed Labs LLC, www.sharedigm.com          #
 #******************************************************************************#
 
-# models
+# script dependencies
 #
 models/comments
 models/connections
 models/contacts
 models/gestures
 models/topics
-
-# collections
-#
 collections/comments
 collections/connections
 collections/contacts
 collections/topics
-
-# apps
-#
 apps/topic-viewer
