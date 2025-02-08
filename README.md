@@ -471,12 +471,10 @@ sh uninstall-apps.sh SHAREDIGM_PATH
 sh install-apps.sh ~/Sites/sharedigm
 ```
 
-<!-- LICENSE -->
 ## License
 
-Distributed under the Sustainable Use License which allows urestricted use of the software but does not allow you to commercialize it. See [LICENSE.md](LICENSE.md) for more information.
+Distributed under the <a href="https://indiesource.org/">IndieSource License</a> which allows unrestricted use of the software except by very large corporations. See [LICENSE.md](LICENSE.md) for more information.
 
-<!-- CONTACT -->
 ## Contact
 
 mailto:admin@sharedigm.com
