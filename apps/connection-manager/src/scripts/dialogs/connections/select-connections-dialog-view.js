@@ -16,7 +16,6 @@
 \******************************************************************************/
 
 import DialogView from '../../../../../views/dialogs/dialog-view.js';
-import ConnectionManagerView from '../../../../../views/apps/connection-manager/connection-manager-view.js';
 
 export default DialogView.extend({
 
@@ -162,15 +161,11 @@ export default DialogView.extend({
 	},
 
 	showConnectionManager: function() {
-		this.showAppView('connection_manager', new ConnectionManagerView({
+		this.showChildApp('connection_manager', {
 			model: this.model,
 
 			// options
 			//
-			dialog: this,
-			hidden: {
-				'footer-bar': true
-			},
 			filter: this.filter || this.options.filter,
 
 			// state
@@ -182,7 +177,7 @@ export default DialogView.extend({
 			onopen: (items) => this.onOpen(items),
 			onselect: () => this.update(),
 			ondeselect: () => this.update()
-		}));
+		});
 	},
 
 	update: function() {

@@ -32,11 +32,6 @@
 			"hidden": true
 		},
 		{
-			"class": "share",
-			"icon": "fa fa-share",
-			"name": "Share"
-		},
-		{
 			"class": "help",
 			"icon": "fa fa-question-circle",
 			"name": "Help"

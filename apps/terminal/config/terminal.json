@@ -1,0 +1,11 @@
+{
+	"name": "Terminal",
+	"icon": "fa fa-terminal",
+	"category": "system",
+	"platform": "admiin",
+	"access": "all",
+	"disabled": false,
+	"hidden": false,
+	"args": false,
+	"color": "green"
+}

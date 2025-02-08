@@ -1,0 +1,11 @@
+{
+	"name": "Search",
+	"icon": "fa fa-search",
+	"category": "system",
+	"platform": "all",
+	"access": "all",
+	"disabled": false,
+	"hidden": false,
+	"args": false,
+	"color": "cyan"
+}

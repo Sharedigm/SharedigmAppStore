@@ -1,7 +1,7 @@
 {
 	"name": "Example3",
 	"icon": "fa fa-rocket",
-	"category": "system",
+	"category": "examples",
 	"platform": "all",
 	"access": "all",
 	"disabled": false,

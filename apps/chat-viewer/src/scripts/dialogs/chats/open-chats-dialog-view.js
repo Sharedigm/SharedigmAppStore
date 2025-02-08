@@ -16,7 +16,6 @@
 \******************************************************************************/
 
 import DialogView from '../../../../../views/dialogs/dialog-view.js';
-import ChatBrowserView from '../../../../../views/apps/chat-browser/chat-browser-view.js';
 
 export default DialogView.extend({
 
@@ -115,14 +114,7 @@ export default DialogView.extend({
 	},
 
 	showChatBrowser: function() {
-		this.showAppView('chat_browser', new ChatBrowserView({
-
-			// options
-			//
-			dialog: this,
-			hidden: {
-				'footer-bar': true
-			},
+		this.showChildApp('chat_browser', {
 
 			// state
 			//
@@ -134,7 +126,7 @@ export default DialogView.extend({
 			onchange: () => this.onChange(),
 			onselect: () => this.update(),
 			ondeselect: () => this.update()
-		}));
+		});
 	},
 
 	update: function() {

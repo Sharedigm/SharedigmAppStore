@@ -17,7 +17,6 @@
 
 import Users from '../../../../../collections/users/users.js';
 import DialogView from '../../../../../views/dialogs/dialog-view.js';
-import ProfileBrowserView from '../../../../../views/apps/profile-browser/profile-browser-view.js';
 
 export default DialogView.extend({
 
@@ -124,17 +123,8 @@ export default DialogView.extend({
 	},
 
 	showProfileBrowser: function() {
-		this.showAppView('profile_browser', new ProfileBrowserView({
+		this.showChildApp('profile_browser', {
 			model: this.model,
-
-			// options
-			//
-			dialog: this,
-			hidden: {
-				'add-connections': true,
-				'view-connections': false,
-				'footer-bar': true
-			},
 
 			// state
 			//
@@ -146,7 +136,7 @@ export default DialogView.extend({
 			onchange: () => this.onChange(),
 			onselect: () => this.update(),
 			ondeselect: () => this.update()
-		}));
+		});
 	},
 
 	onShown: function() {

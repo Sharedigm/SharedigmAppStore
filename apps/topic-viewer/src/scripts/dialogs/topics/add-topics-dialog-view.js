@@ -17,7 +17,6 @@
 
 import Topic from '../../../../../models/topics/topic.js';
 import DialogView from '../../../../../views/dialogs/dialog-view.js';
-import TopicBrowserView from '../../../../../views/apps/topic-browser/topic-browser-view.js';
 
 export default DialogView.extend({
 
@@ -174,18 +173,13 @@ export default DialogView.extend({
 	},
 
 	showTopicBrowser: function() {
-		this.showAppView('topic_browser', new TopicBrowserView({
+		this.showChildApp('topic_browser', {
 			model: this.model,
 
 			// options
 			//
 			search: '',
 			subscribed: false,
-			dialog: this,
-			hidden: {
-				'add-topics': true,
-				'footer-bar': true
-			},
 
 			// state
 			//
@@ -198,7 +192,7 @@ export default DialogView.extend({
 			onselect: () => this.update(),
 			ondeselect: () => this.update(),
 			onsave: (item) => this.onSave(item)
-		}));
+		});
 	},
 
 	onShown: function() {

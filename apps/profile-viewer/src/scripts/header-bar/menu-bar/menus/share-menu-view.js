@@ -46,18 +46,16 @@ export default ShareMenuView.extend({
 	// querying methods
 	//
 	
-	disabled: function() {
-		let isCurrent = !this.parent.app.model.isCurrent();
+	visible: function() {
+		let isCurrent = this.parent.app.model.isCurrent();
 
-		// set initial state
-		//
 		return {
 			'share-message': !isCurrent,
 			'share-gesture': !isCurrent,
 			'share-by-topic': !isCurrent,
 			'share-by-message': !isCurrent,
-			'share-by-link': !isCurrent,
-			'share-by-email': !isCurrent,
+			'share-by-link': true,
+			'share-by-email': true,
 			'share-attachments': !isCurrent
 		};
 	},
@@ -69,6 +67,14 @@ export default ShareMenuView.extend({
 	getItems: function() {
 		let items = ShareMenuView.prototype.getItems.call(this);
 		return items.concat(this.getFileItems());
+	},
+
+	//
+	// rendering methods
+	//
+
+	onAttach: function() {
+		this.$el.find('li.hidden').remove();
 	},
 
 	//
