@@ -1,18 +1,18 @@
-<h1><i class="<%= config.apps['chat_viewer'].icon %>"></i><%= config.apps['chat_viewer'].name %></h1>
+<h1><i class="<%= config.apps.chat_viewer.icon %>"></i><%= config.apps.chat_viewer.name %></h1>
 
 <ol class="breadcrumb">
 	<li><a href="#"><i class="fa fa-home"></i>Home</a></li>
 	<li><a href="#apps"><i class="fa fa-rocket"></i>Apps</a></li>
-	<li><i class="fa fa-comments"></i><%= config.apps['chat_viewer'].name %></li>
+	<li><i class="fa fa-comments"></i><%= config.apps.chat_viewer.name %></li>
 </ol>
 
 <div class="content">
-	<div class="attention icon colored <%= config.apps['chat_viewer'].color %>">
-		<img src="images/icons/apps/<%= config.apps['chat_viewer'].image || config.apps['chat_viewer'].app + '.svg' %>" />
+	<div class="attention icon colored <%= config.apps.chat_viewer.color %>">
+		<img src="images/icons/apps/<%= config.apps.chat_viewer.image || config.apps.chat_viewer.app + '.svg' %>" />
 	</div>
 
 	<div class="description section">
-		<p>The <%= config.apps['chat_viewer'].name %> app </p>
+		<p>The <%= config.apps.chat_viewer.name %> app </p>
 	</div>
 
 	<div class="details section">
@@ -41,11 +41,11 @@
 	
 	<h2><i class="fa fa-desktop"></i>Screen Shots</h2>
 	<div class="figure desktop-only">
-		<a href="images/info/apps/chat-viewer/chat-viewer.png" target="_blank" class="lightbox" title="<%= config.apps['chat_viewer'].name %>"><img class="dialog" src="images/info/apps/chat-viewer/chat-viewer.png" /></a>
-		<div class="caption"><%= config.apps['chat_viewer'].name %></div>
+		<a href="images/info/apps/chat-viewer/chat-viewer.png" target="_blank" class="lightbox" title="<%= config.apps.chat_viewer.name %>"><img class="dialog" src="images/info/apps/chat-viewer/chat-viewer.png" /></a>
+		<div class="caption"><%= config.apps.chat_viewer.name %></div>
 	</div>
 	<div class="figure mobile-only">
-		<a href="images/info/apps/chat-viewer/mobile/mobile-chat-viewer.png" target="_blank" class="lightbox" title="<%= config.apps['chat_viewer'].name %>"><img src="images/info/apps/chat-viewer/mobile/mobile-chat-viewer.png" /></a>
-		<div class="caption"><%= config.apps['chat_viewer'].name %></div>
+		<a href="images/info/apps/chat-viewer/mobile/mobile-chat-viewer.png" target="_blank" class="lightbox" title="<%= config.apps.chat_viewer.name %>"><img src="images/info/apps/chat-viewer/mobile/mobile-chat-viewer.png" /></a>
+		<div class="caption"><%= config.apps.chat_viewer.name %></div>
 	</div>
 </div>

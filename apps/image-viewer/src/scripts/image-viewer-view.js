@@ -12,7 +12,7 @@
 |        'LICENSE.md', which is part of this source code distribution.         |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2024, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016 - 2025, Megahed Labs LLC, www.sharedigm.com        |
 \******************************************************************************/
 
 import ImageFile from '../../../models/storage/media/image-file.js';
@@ -667,11 +667,7 @@ export default AppSplitView.extend(_.extend({}, Loadable, ItemShareable, ItemFav
 		//
 		let imageView = this.getImageView();
 		if (imageView) {
-			if (!imageView.isFullScreen()) {
-				imageView.requestFullScreen();
-			} else {
-				imageView.exitFullScreen();
-			}
+			imageView.toggleFullScreen();
 		}
 	},
 
@@ -817,7 +813,7 @@ export default AppSplitView.extend(_.extend({}, Loadable, ItemShareable, ItemFav
 			// options
 			//
 			preferences: this.preferences,
-			show_sidebar: this.preferences.get('show_exif_info'),
+			show_sidebar: this.preferences.get('show_image_info'),
 			sidebar_size: this.preferences.get('info_bar_size'),
 
 			// callbacks

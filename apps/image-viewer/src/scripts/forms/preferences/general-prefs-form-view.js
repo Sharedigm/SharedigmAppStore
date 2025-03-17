@@ -12,7 +12,7 @@
 |        'LICENSE.md', which is part of this source code distribution.         |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2024, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016 - 2025, Megahed Labs LLC, www.sharedigm.com        |
 \******************************************************************************/
 
 import Directory from '../../../../../models/storage/directories/directory.js';
@@ -33,6 +33,8 @@ export default PreferencesFormView.extend({
 				
 				<div class="checkbox-inline">
 					<input type="checkbox"<% if (background_color) { %> checked<% } %> />
+				</div>
+				<div class="control-inline">
 					<input type="color"<% if (background_color) { %> value="<%= background_color %>"<% } else { %> value="black"<% } %><% if (!background_color) { %> style="display:none"<% } %> />
 				</div>
 		

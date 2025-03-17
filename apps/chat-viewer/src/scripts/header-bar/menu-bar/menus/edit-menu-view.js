@@ -12,7 +12,7 @@
 |        'LICENSE.md', which is part of this source code distribution.         |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2024, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016 - 2025, Megahed Labs LLC, www.sharedigm.com        |
 \******************************************************************************/
 
 import EditMenuView from '../../../../../../views/apps/common/header-bar/menu-bar/menus/edit-menu-view.js';
@@ -36,7 +36,8 @@ export default EditMenuView.extend({
 	//
 
 	enabled: function() {
-		let hasSelectedMessage = this.parent.app.hasSelectedMessage();
+		let hasChat = this.parent.app.collection.length > 0;
+		let hasSelectedMessage = hasChat && this.parent.app.hasSelectedMessage();
 
 		return {
 			'edit': hasSelectedMessage,

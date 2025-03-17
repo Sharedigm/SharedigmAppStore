@@ -12,7 +12,7 @@
 |        'LICENSE.md', which is part of this source code distribution.         |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2024, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016 - 2025, Megahed Labs LLC, www.sharedigm.com        |
 \******************************************************************************/
 
 import ViewMenuView from '../../../../../../views/apps/common/header-bar/menu-bar/menus/view-menu-view.js';
@@ -57,7 +57,7 @@ export default ViewMenuView.extend({
 
 		// mainbar options
 		//
-		'click .show-exif-info': 'onClickOption',
+		'click .show-pdf-info': 'onClickOption',
 
 		// window options
 		//
@@ -95,7 +95,9 @@ export default ViewMenuView.extend({
 			// sidebar options
 			//
 			'show-sidebar': preferences.get('show_sidebar'),
+			'show-favorites-panel': sidebarPanels.includes('favorites'),
 			'show-pages-panel': sidebarPanels.includes('pages'),
+			'show-files-panel': sidebarPanels.includes('files'),
 
 			// sidebar tile sizes
 			//
@@ -105,7 +107,7 @@ export default ViewMenuView.extend({
 
 			// info bar options
 			//
-			'show-exif-info': preferences.get('show_exif_info')
+			'show-pdf-info': preferences.get('show_pdf_info')
 		};
 	},
 

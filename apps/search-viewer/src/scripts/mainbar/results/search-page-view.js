@@ -1,10 +1,10 @@
 /******************************************************************************\
 |                                                                              |
-|                              not-found-view.js                               |
+|                            search-page-view.js                               |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
-|        This defines the 404 / file not found view of the application.        |
+|        This defines a view used for searching and displaying results.        |
 |                                                                              |
 |        Author(s): Abe Megahed                                                |
 |                                                                              |
@@ -12,7 +12,7 @@
 |        'LICENSE.md', which is part of this source code distribution.         |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2024, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016 - 2025, Megahed Labs LLC, www.sharedigm.com        |
 \******************************************************************************/
 
 import UserPreferences from '../../../../../models/preferences/user-preferences.js';
@@ -70,7 +70,6 @@ export default BaseView.extend({
 
 			// options
 			//
-			search_kind: config.defaults.search.kind,
 			view_kind: preferences.get('view_kind'),
 			items_per_page: preferences.get('items_per_page'),
 			detail_kind: preferences.get('detail_kind'),

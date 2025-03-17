@@ -12,7 +12,7 @@
 |        'LICENSE.md', which is part of this source code distribution.         |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2024, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016 - 2025, Megahed Labs LLC, www.sharedigm.com        |
 \******************************************************************************/
 
 import ShareMenuView from '../../../../../../views/apps/common/header-bar/menu-bar/menus/share-menu-view.js';
@@ -44,7 +44,9 @@ export default ShareMenuView.extend({
 		let hasChat = this.parent.app.collection.length > 0;
 
 		return {
-			'share-chat': isSignedIn && hasChat
+			'share-chat': isSignedIn && hasChat,
+			'share-location': isSignedIn && hasChat,
+			'share-attachments': isSignedIn && hasChat
 		};
 	},
 

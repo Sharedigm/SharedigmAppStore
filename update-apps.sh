@@ -209,7 +209,7 @@ fi
 
 # check if we specify apps
 #
-if [ $# -lt 2 ] ; then
+if [ $2 == 'all' ] ; then
 	update_apps $sourcedir/scripts/views/apps
 else
 

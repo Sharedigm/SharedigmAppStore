@@ -1,18 +1,18 @@
-<h1><i class="<%= config.apps['map_viewer'].icon %>"></i><%= config.apps['map_viewer'].name %></h1>
+<h1><i class="<%= config.apps.map_viewer.icon %>"></i><%= config.apps.map_viewer.name %></h1>
 
 <ol class="breadcrumb">
 	<li><a href="#"><i class="fa fa-home"></i>Home</a></li>
 	<li><a href="#apps"><i class="fa fa-rocket"></i>Apps</a></li>
-	<li><i class="fa fa-map"></i><%= config.apps['map_viewer'].name %></li>
+	<li><i class="fa fa-map"></i><%= config.apps.map_viewer.name %></li>
 </ol>
 
 <div class="content">
-	<div class="attention icon colored <%= config.apps['map_viewer'].color %>">
-		<img src="images/icons/apps/<%= config.apps['map_viewer'].image || config.apps['map_viewer'].app + '.svg' %>" />
+	<div class="attention icon colored <%= config.apps.map_viewer.color %>">
+		<img src="images/icons/apps/<%= config.apps.map_viewer.image || config.apps.map_viewer.app + '.svg' %>" />
 	</div>
 
 	<div class="description section">
-		<p>The <%= config.apps['map_viewer'].name %> app lets you view and explore interactive maps. </p>
+		<p>The <%= config.apps.map_viewer.name %> app lets you view and explore interactive maps. </p>
 	</div>
 
 	<div class="details section">
@@ -59,11 +59,11 @@
 
 	<h2><i class="fa fa-desktop"></i>Screen Shots</h2>
 	<div class="figure desktop-only">
-		<a href="images/info/apps/map-viewer/map-viewer.png" target="_blank" class="lightbox" title="<%= config.apps['map_viewer'].name %>"><img class="dialog" src="images/info/apps/map-viewer/map-viewer.png" /></a>
-		<div class="caption"><%= config.apps['map_viewer'].name %></div>
+		<a href="images/info/apps/map-viewer/map-viewer.png" target="_blank" class="lightbox" title="<%= config.apps.map_viewer.name %>"><img class="dialog" src="images/info/apps/map-viewer/map-viewer.png" /></a>
+		<div class="caption"><%= config.apps.map_viewer.name %></div>
 	</div>
 	<div class="figure mobile-only">
-		<a href="images/info/apps/map-viewer/mobile/mobile-map-viewer.png" target="_blank" class="lightbox" title="<%= config.apps['map_viewer'].name %>"><img src="images/info/apps/map-viewer/mobile/mobile-map-viewer.png" /></a>
-		<div class="caption"><%= config.apps['map_viewer'].name %></div>
+		<a href="images/info/apps/map-viewer/mobile/mobile-map-viewer.png" target="_blank" class="lightbox" title="<%= config.apps.map_viewer.name %>"><img src="images/info/apps/map-viewer/mobile/mobile-map-viewer.png" /></a>
+		<div class="caption"><%= config.apps.map_viewer.name %></div>
 	</div>
 </div>

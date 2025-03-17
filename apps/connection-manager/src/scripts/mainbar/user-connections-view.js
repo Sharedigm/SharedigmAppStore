@@ -12,19 +12,13 @@
 |        'LICENSE.md', which is part of this source code distribution.         |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2024, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016 - 2025, Megahed Labs LLC, www.sharedigm.com        |
 \******************************************************************************/
 
 import Connections from '../../../../collections/connections/connections.js';
 import UsersView from '../../../../views/apps/profile-browser/mainbar/users/users-view.js';
 
 export default UsersView.extend({
-
-	//
-	// attributes
-	//
-
-	className: 'user connections panel',
 
 	//
 	// constructor

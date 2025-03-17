@@ -12,7 +12,7 @@
 |        'LICENSE.md', which is part of this source code distribution.         |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2024, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016 - 2025, Megahed Labs LLC, www.sharedigm.com        |
 \******************************************************************************/
 
 import SideBarView from '../../../../views/apps/common/sidebar/sidebar-view.js';
@@ -195,6 +195,9 @@ export default SideBarView.extend({
 
 		// update panels
 		//
+		if (this.hasChildView('images')) {
+			this.getChildView('images').update();
+		}
 		if (this.hasChildView('files')) {
 			this.getChildView('files').update();
 		}

@@ -12,7 +12,7 @@
 |        'LICENSE.md', which is part of this source code distribution.         |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2024, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016 - 2025, Megahed Labs LLC, www.sharedigm.com        |
 \******************************************************************************/
 
 import PreferencesFormView from '../../../../../views/apps/common/forms/preferences-form-view.js';
@@ -67,7 +67,11 @@ export default PreferencesFormView.extend({
 		<div class="sidebar-panels form-group">
 			<label class="control-label"><i class="fa fa-pause"></i>Sidebar Panels</label>
 			<div class="controls">
-			
+
+				<div class="checkbox-inline">
+					<label><input type="checkbox" value="favorites"<% if (sidebar_panels.includes('favorites')) { %> checked<% } %>>Favorites</label>
+				</div>
+
 				<div class="checkbox-inline">
 					<label><input type="checkbox" value="videos"<% if (sidebar_panels.includes('videos')) { %> checked<% } %>>Videos</label>
 				</div>

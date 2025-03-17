@@ -24,6 +24,7 @@
 		"desktop": 175
 	},
 	"sidebar_panels": [
+		"favorites",
 		"videos"
 	],
 	"sidebar_view_kind": {

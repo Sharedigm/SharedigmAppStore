@@ -12,12 +12,13 @@
 |        'LICENSE.md', which is part of this source code distribution.         |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2024, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016 - 2025, Megahed Labs LLC, www.sharedigm.com        |
 \******************************************************************************/
 
 import BaseView from '../../../../views/base-view.js';
+import FullScreenable from '../../../../views/behaviors/layout/full-screenable.js';
 
-export default BaseView.extend({
+export default BaseView.extend(_.extend({}, FullScreenable, {
 
 	//
 	// attributes
@@ -146,10 +147,16 @@ export default BaseView.extend({
 			this.onLoad();
 		});
 		$(this.video).on('error', (event) => {
-			$(event.target).remove();
-			this.showMessage("404 - Video Not Found.", {
-				icon: '<i class="fa fa-bug"></i>'
-			});
+
+			// reload video
+			//
+			this.video.load();
+
+			// perform callback
+			//
+			if (this.options.onerror) {
+				this.options.onerror(event);
+			}
 		});
 
 		// start video download
@@ -218,4 +225,4 @@ export default BaseView.extend({
 			this.options.onclick();
 		}		
 	}
-});
+}));

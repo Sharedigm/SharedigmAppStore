@@ -12,7 +12,7 @@
 |        'LICENSE.md', which is part of this source code distribution.         |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2024, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016 - 2025, Megahed Labs LLC, www.sharedigm.com        |
 \******************************************************************************/
 
 import File from '../../../../../../models/storage/files/file.js';
@@ -122,7 +122,7 @@ export default FileMenuView.extend({
 			'open-favorites': true,
 			'upload-item': true,
 			'favorites': true,
-			'add-favorites': true,
+			'add-favorites': isSignedIn,
 			'remove-favorites': hasSelectedFavorites,
 			'open-first': !hasSelected && !viewingMap,
 			'open-prev': hasSelectedFavorites && !viewingMap,

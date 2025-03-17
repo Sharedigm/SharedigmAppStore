@@ -12,7 +12,7 @@
 |        'LICENSE.md', which is part of this source code distribution.         |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2024, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016 - 2025, Megahed Labs LLC, www.sharedigm.com        |
 \******************************************************************************/
 
 import FileMenuView from '../../../../../../views/apps/common/header-bar/menu-bar/menus/file-menu-view.js';
@@ -26,6 +26,8 @@ export default FileMenuView.extend({
 	events: {
 		'click .new-window': 'onClickNewWindow',
 		'click .open-file': 'onClickOpenFile',
+		'click .add-favorites': 'onClickAddFavorites',
+		'click .remove-favorites': 'onClickRemoveFavorites',
 		'click .show-info': 'onClickShowInfo',
 		'click .save-as': 'onClickSaveAs',
 		'click .download-file': 'onClickDownloadFile',
@@ -38,10 +40,13 @@ export default FileMenuView.extend({
 
 	enabled: function() {
 		let isSignedIn = application.isSignedIn();
-		
+		let hasSelectedFavorites = this.parent.app.hasSelectedFavorites();
+
 		return {
 			'new-window': true,
 			'open-file': isSignedIn,
+			'add-favorites': isSignedIn,
+			'remove-favorites': hasSelectedFavorites,
 			'show-info': this.parent.app.model != null,
 			'save-as': isSignedIn,
 			'download-file': this.parent.app.model != null,
@@ -55,6 +60,14 @@ export default FileMenuView.extend({
 
 	onClickOpenFile: function() {
 		this.parent.app.showOpenDialog();
+	},
+
+	onClickAddFavorites: function() {
+		this.parent.app.showAddFavoritesDialog();
+	},
+
+	onClickRemoveFavorites: function() {
+		this.parent.app.removeSelectedFavorites();
 	},
 
 	onClickShowInfo: function() {

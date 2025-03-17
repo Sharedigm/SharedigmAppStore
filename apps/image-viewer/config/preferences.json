@@ -12,7 +12,8 @@
 		"mouse_mode",
 		"zoom_mode",
 		"zoom",
-		"image"
+		"image",
+		"rotate"
 	],
 	"show_sidebar": true,
 	"sidebar_size": {
@@ -39,7 +40,7 @@
 		"tablet": "medium",
 		"desktop": "large"
 	},
-	"show_exif_info": false,
+	"show_image_info": false,
 	"info_bar_size": {
 		"phone": 50,
 		"tablet": 25,

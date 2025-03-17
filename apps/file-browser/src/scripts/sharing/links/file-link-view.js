@@ -12,7 +12,7 @@
 |        'LICENSE.md', which is part of this source code distribution.         |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2024, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016 - 2025, Megahed Labs LLC, www.sharedigm.com        |
 \******************************************************************************/
 
 import LinkView from '../../../../../views/apps/file-browser/sharing/links/link-view.js';
@@ -85,7 +85,7 @@ export default LinkView.extend({
 
 	openFile: function(link) {
 		application.launch(this.getAppName(), {
-			model: link.getFile()
+			model: link.getTarget()
 		});
 	},
 

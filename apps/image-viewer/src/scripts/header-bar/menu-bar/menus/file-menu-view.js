@@ -12,7 +12,7 @@
 |        'LICENSE.md', which is part of this source code distribution.         |
 |                                                                              |
 |******************************************************************************|
-|        Copyright (C) 2016-2024, Megahed Labs LLC, www.sharedigm.com          |
+|        Copyright (C) 2016 - 2025, Megahed Labs LLC, www.sharedigm.com        |
 \******************************************************************************/
 
 import FileMenuView from '../../../../../../views/apps/common/header-bar/menu-bar/menus/file-menu-view.js';
@@ -58,8 +58,7 @@ export default FileMenuView.extend({
 			'open-prev': hasImages,
 			'open-next': hasImages,
 			'open-last': hasImages,
-			'favorites': true,
-			'add-favorites': true,
+			'add-favorites': isSignedIn,
 			'remove-favorites': hasSelectedFavorites,
 			'show-info': isOpen,
 			'download-items': isOpen,
